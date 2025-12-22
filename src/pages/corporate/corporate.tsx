@@ -25,10 +25,7 @@ const Corporate = () => {
             alt="About Trip In Minutes"
             className="w-300 sm:w-200 md:w-[920px]"
           />
-
-          
         </div>
-
       </div>
     </section>
   );

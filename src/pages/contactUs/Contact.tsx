@@ -48,11 +48,14 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <Inquiryform/>
-        <Faq/>
-        <Footer/>
+       
 
       </section>
+       <div className="mt-16 ml-0">
+        <Inquiryform />
+       </div>
+         <Faq/>
+        <Footer/>
     </div>
   );
 };

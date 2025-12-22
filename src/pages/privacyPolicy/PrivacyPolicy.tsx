@@ -30,11 +30,32 @@ const PrivacyPolicy = () => {
             <a href="#contact">Contact</a>
           </ul>
 
-          <button className="bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
+          <button className="hidden lg:block bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
             Book a Trip
           </button>
           <div className="md:hidden text-2xl cursor-pointer">
   ☰
+</div>
+
+{/* TABS */}
+<div className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-full -mt-3 z-20">
+  <div className="bg-white text-black px-4 py-4 rounded-2xl flex items-center text-[11px] font-bold shadow whitespace-nowrap">
+    
+    <span className="px-3">Flights</span>
+    <span className="h-6 w-px bg-gray-500 shadow-xl-gray"></span>
+
+    <span className="px-3">Hotels</span>
+    <span className="h-6 w-px bg-gray-500"></span>
+
+    <span className="px-3">Packages</span>
+    <span className="h-6 w-px bg-gray-500"></span>
+
+    <span className="px-3">Visa</span>
+    <span className="h-6 w-px bg-gray-500"></span>
+
+    <span className="px-3">Transportation</span>
+
+  </div>
 </div>
         </nav>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
@@ -47,7 +68,7 @@ const PrivacyPolicy = () => {
       
 
       {/* CONTENT */}
-      <div className="max-w-5xl mx-auto px-6 py-20">
+      <div className="max-w-5xl ml-14 px-6 py-20">
         <h2 className="text-xl font-semibold mb-4">Privacy Policy</h2>
         <p className="text-gray-700 mb-8 leading-7">
           Effective date: 1 January 2025

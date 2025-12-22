@@ -7,18 +7,18 @@ const Footer = () => {
     <footer className="bg-white py-16 border-t">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-start">
 
           {/* LOGO */}
-          <div>
+          <div className="col-span-1 order-3 flex justify-center md:justify-start mt-10 md:mt-0">
             <img src={logo} alt="Trip In Minutes" className="w-40 mb-4" />
           </div>
 
           {/* USEFUL LINKS */}
-          <div>
+          <div className="col-span-1 order-1">
             <h4 className="font-semibold mb-4">Useful links</h4>
             <ul className="space-y-2 text-sm text-gray-700">
-              <li><Link to="/" className="hover:underline">✓ Home</Link></li>
+              <li><Link to="/" className="hover:underliZne">✓ Home</Link></li>
               <li><Link to="/about" className="hover:underline">✓ About Us</Link></li>
               <li><Link to="/destinations" className="hover:underline">✓ Destinations</Link></li>
               <li><Link to="/contact" className="hover:underline">✓ Contact Us</Link></li>
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
 
           {/* OUR SERVICES */}
-          <div>
+          <div className="col-span-1 order-2">
             <h4 className="font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>✓ Hotels</li>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           {/* CONTACT US */}
-          <div>
+          <div className="col-span-1 order-4 text-center md:text-left">
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <p className="text-sm text-gray-700 mb-2">
               Siv Estate, Sy No 49/283,<br />

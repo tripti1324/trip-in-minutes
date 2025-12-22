@@ -3,9 +3,11 @@ import { useState } from "react";
 import{Andaman, Kerala,
  Uttarakhand,
     JammuKashmir, Karnataka, Lakshadweep,Goa, rajsthan, HimachalPradesh} from "../../assets";
-  import MobContactBar from "../common/MobContactBar";
+import MobContactBar from "../common/MobContactBar";
 import Testimonial from "../../pages/testimonials/Testimonials";
 import Footer from "../footer/Footer";
+import Inquiryform from "../common/Inquiryform";
+import FAQSection from "../common/Faq";
  
 
 const domestic = [
@@ -108,7 +110,7 @@ const Header = () => {
         <nav className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white text-black rounded-t-3xl">
           <img src={logo} alt="logo" className="h-8" />
 
-        <ul className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+        <ul className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-900">
             <li className="cursor-pointer hover:text-indigo-600" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>About</li>
             <li className="cursor-pointer hover:text-indigo-600" onClick={() => document.getElementById('corporate')?.scrollIntoView({ behavior: 'smooth' })}>Corporate</li>
             <li className="cursor-pointer hover:text-indigo-600" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>Services</li>
@@ -125,19 +127,19 @@ const Header = () => {
 
 {/* TABS */}
 <div className="absolute left-1/2 -translate-x-1/2 top-16 z-20">
-  <div className="bg-white text-black px-5 py-2 rounded-full flex items-center text-[13px] font-medium shadow whitespace-nowrap">
+  <div className="bg-white text-black px-5 py-4 rounded-2xl flex items-center text-[15px] font-bold shadow whitespace-nowrap">
     
     <span className="px-3">Flights</span>
-    <span className="h-4 w-px bg-gray-300"></span>
+    <span className="h-6 w-px bg-gray-500 shadow-xl-gray"></span>
 
     <span className="px-3">Hotels</span>
-    <span className="h-4 w-px bg-gray-300"></span>
+    <span className="h-6 w-px bg-gray-500"></span>
 
     <span className="px-3">Packages</span>
-    <span className="h-4 w-px bg-gray-300"></span>
+    <span className="h-6 w-px bg-gray-500"></span>
 
     <span className="px-3">Visa</span>
-    <span className="h-4 w-px bg-gray-300"></span>
+    <span className="h-6 w-px bg-gray-500"></span>
 
     <span className="px-3">Transportation</span>
 
@@ -376,21 +378,21 @@ const Header = () => {
 
         {/* CARDS */}
         {activeTab === "domestic" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10">
             {domestic.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl shadow-md p-4 text-center"
+                className="bg-white rounded-3xl shadow-md p-3 sm:p-4 text-center"
               >
                 <div className="rounded-2xl overflow-hidden">
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="h-40 w-full object-cover"
+                    className="aspect-[4/3] sm:h-40 w-full object-cover"
                   />
                 </div>
 
-                <p className="mt-4 font-semibold text-gray-900">
+                <p className="mt-4 sm:mt-4 font-semibold text-gray-900">
                   {item.name}
                 </p>
                
@@ -405,12 +407,14 @@ const Header = () => {
             International destinations coming soon 🌍
           </div>
         )}
-        <Testimonial/>
-        <Footer/>
-
+      
 
       </div>
     </section>
+    <Testimonial/>
+        <Inquiryform/>
+        <FAQSection/>
+        <Footer/>
     </>
   );
 };

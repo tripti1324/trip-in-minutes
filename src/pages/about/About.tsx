@@ -30,7 +30,7 @@ const About = () => {
             <a href="#contact">Contact</a>
           </ul>
 
-          <button className="bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
+          <button className="hidden lg:block bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
             Book a Trip
           </button>
           <div className="md:hidden text-2xl cursor-pointer">
@@ -55,33 +55,26 @@ const About = () => {
        
 
       <section id="about" className="w-full bg-white py-20">
-        <div className="max-w-9xl mx-auto ml-[-80px] px-2 grid md:grid-cols-2 gap-12 items-center ">
+        <div className="max-w-9xl mx-auto px-4 md:ml-[-80px] grid md:grid-cols-2 gap-12 items-center ">
           {/* LEFT CONTENT */}
-          <div>
+          <div className="text-center md:text-left max-w-md mx-auto md:max-w-none">
             <h2 className="text-3xl font-bold mb-6">ABOUT US</h2>
 
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              Travel should feel effortless that’s 
-the philosophy behind Trip in Minutes.
-We’re a modern travel concierge built for 
-today’s smart explorers: the solo traveler 
-chasing new horizons, the content creator 
-capturing moments, the family looking for
- stress-free vacations, and the corporate 
-professional who values efficient planning.
-
+            <p className="text-gray-900 mb-2 leading-relaxed">
+              Trip in Minutes is a modern travel service built to make planning effortless and joyful.
+               We combine smart coordination, curated experiences and warm, personalised support to 
+               design journeys that match your style  whether you're exploring solo, creating travel
+                content, enjoying time with family and friends, or travelling for business.
             </p>
 
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              Our approach is simple: quick coordination, seamless planning,
-              warm guidance, and beautifully curated travel experiences.
+            <p className="text-gray-900 mb-4 leading-relaxed">
+              Our focus is on clarity, quality and thoughtful execution. 
+              We provide fast, reliable support where it matters, and careful
+              curation where it counts — all to ensure your travel moments are
+             meaningful and stress-free.
             </p>
 
-            <p className="text-gray-700 leading-relaxed">
-              From flights and stays to full-scale travel design, we bring
-              together technology, insight, and passion to make your journeys
-              smoother, smarter, and more meaningful.
-            </p>
+            
           </div>
 
           {/* RIGHT IMAGE + BADGES */}

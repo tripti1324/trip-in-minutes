@@ -1,6 +1,5 @@
-import { girlWithHat } from "../../assets";
 import { useState } from "react";
-import Inquiryform from "../../components/common/Inquiryform";
+
 
 const testimonials = [
 
@@ -21,28 +20,6 @@ const testimonials = [
   },
 ];
 
-const faqs = [
-  {
-    q: "Who is Trip in Minutes for?",
-    a: "We design travel for everyone — explorers, families, creators, friends and corporate teams seeking reliable, well-planned journeys.",
-  },
-  {
-    q: "Do you offer customised travel packages?",
-    a: "Yes. Our travel designers build personalised itineraries based on your preferences, interests and travel style.",
-  },
-  {
-    q: "Can you help with flight and hotel bookings?",
-    a: "Absolutely. We provide seamless booking assistance for flights, hotels and local transport through vetted partners.",
-  },
-  {
-    q: "Do you offer ready-made packages?",
-    a: "Yes. Choose from a selection of curated experiences that are ready to book for a convenient and well-planned escape.",
-  },
-  {
-    q: "How do I start planning with Trip in Minutes?",
-    a: "Use our contact form or email us with your travel idea — tell us about your group size, preferred dates and any special requests, and our team will take it from there.",
-  },
-];
 
 
 
@@ -61,18 +38,22 @@ const faqs = [
           {testimonials.map((item, index) => (
             <div key={index} className="relative max-w-sm mx-auto">
 
-              {/* CARD */}
-              <div className="relative bg-white p-6 rounded-xl shadow-lg z-10">
+              {/* SHADOW WRAPPER */}
+<div className="relative shadow-[0_35px_60px_rgba(0,0,0,0.18)]"></div>
 
-                {/* ANGLED CORNER */}
-                <div className="absolute top-0 right-0 w-10 h-10 bg-gray-100 rotate-45 translate-x-5 -translate-y-5"></div>
-
+  {/* CLIPPED CARD */}
+  <div
+    className="relative bg-white p-8 pt-14 z-10"
+    style={{
+      clipPath: "polygon(0 0, 100% 0, 100% 80%, 0 100%)",
+    }}
+  >
                 {/* BIG QUOTE */}
-                <div className="absolute -top-6 left-6 text-indigo-900 text-6xl font-extrabold leading-none">
+                <div className="absolute -top-4 left-6 text-indigo-900 text-6xl font-extrabold leading-none">
                   “
                 </div>
 
-                <p className="text-sm text-gray-700 mt-6 mb-4 leading-relaxed">
+                <p className="text-sm text-gray-700 mb-4 leading-relaxed">
                   {item.text}
                 </p>
 
@@ -80,57 +61,11 @@ const faqs = [
                   — {item.author}
                 </p>
               </div>
-
-              {/* SLANTED BOTTOM */}
-              <div className="absolute left-0 right-0 -bottom-6 h-12 bg-white shadow-lg rounded-b-xl transform -skew-y-3"></div>
             </div>
           ))}
         </div>
-        
-        <Inquiryform/>
-
-
-        {/* FAQ SECTION (AFTER FORM) */}
-        <section className="max-w-4xl mt-8 px-6">
-          <h2 className="text-3xl font-bold mb-8">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="space-y-6">
-            {faqs.map((item, index) => {
-              const isOpen = openIndex === index;
-
-              return (
-                <div key={index}>
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex items-start gap-3 w-full text-left"
-                  >
-                    <span
-                      className={`mt-1 transition-transform duration-200 ${
-                        isOpen ? "rotate-90 text-indigo-700" : "text-black"
-                      }`}
-                    >
-                      ▶
-                    </span>
-
-                    <span className="font-semibold text-base">
-                      {item.q}
-                    </span>
-                  </button>
-
-                  {isOpen && (
-                    <p className="ml-7 mt-2 text-sm text-black-700 leading-relaxed">
-                      {item.a}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
       </div>
+      
     </section>
   );
 };
