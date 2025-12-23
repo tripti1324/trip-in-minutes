@@ -10,12 +10,12 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-start">
 
           {/* LOGO */}
-          <div className="col-span-1 order-3 flex justify-center md:justify-start mt-10 md:mt-0">
+          <div className="col-span-1 order-1 flex justify-center md:justify-start mt-10 md:mt-0">
             <img src={logo} alt="Trip In Minutes" className="w-40 mb-4" />
           </div>
 
           {/* USEFUL LINKS */}
-          <div className="col-span-1 order-1">
+          <div className="col-span-1 order-2">
             <h4 className="font-semibold mb-4">Useful links</h4>
             <ul className="space-y-2 text-sm text-gray-700">
               <li><Link to="/" className="hover:underliZne">✓ Home</Link></li>
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
 
           {/* OUR SERVICES */}
-          <div className="col-span-1 order-2">
+          <div className="col-span-1 order-3">
             <h4 className="font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>✓ Hotels</li>

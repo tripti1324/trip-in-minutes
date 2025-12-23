@@ -3,6 +3,8 @@ import Inquiryform from "../../components/common/Inquiryform";
 import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import MobContactBar from "../../components/common/MobContactBar";
+import ThreeLine from "../../components/smallcomp/ThreeLinr";
+import NavBar from "../../components/common/navbar/NavBar";
 
 const About = () => {
   return (
@@ -17,26 +19,9 @@ const About = () => {
         }}
       >
         <MobContactBar />
-
-        {/* NAVBAR */}
-        <nav className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white text-black rounded-t-3xl">
-          <img src={logo} alt="logo" className="h-8" />
-
-          <ul className="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#corporate">Corporate</a>
-            <a href="#testimonial">Testimonials</a>
-            <a href="#contact">Contact</a>
-          </ul>
-
-          <button className="hidden lg:block bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
-            Book a Trip
-          </button>
-          <div className="md:hidden text-2xl cursor-pointer">
-  ☰
-</div>
-        </nav>
+        <NavBar/>
+        <ThreeLine/>
+       
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
           <h1 className="text-xl font-semibold leading-tight">
               Why We Exist — and Why <br />Your Journeys Matter to Us. <br />
@@ -61,17 +46,24 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">ABOUT US</h2>
 
             <p className="text-gray-900 mb-2 leading-relaxed">
-              Trip in Minutes is a modern travel service built to make planning effortless and joyful.
-               We combine smart coordination, curated experiences and warm, personalised support to 
-               design journeys that match your style  whether you're exploring solo, creating travel
-                content, enjoying time with family and friends, or travelling for business.
+             Travel should feel effortless that’s 
+the philosophy behind Trip in Minutes.
+We’re a modern travel concierge built for 
+today’s smart explorers: the solo traveler 
+chasing new horizons, the content creator 
+capturing moments, the family looking for
+ stress-free vacations, and the corporate 
+professional who values efficient planning.
             </p>
 
             <p className="text-gray-900 mb-4 leading-relaxed">
-              Our focus is on clarity, quality and thoughtful execution. 
-              We provide fast, reliable support where it matters, and careful
-              curation where it counts — all to ensure your travel moments are
-             meaningful and stress-free.
+             Our approach is simple: quick coordination, seamless planning, warm 
+guidance, and beautifully curated travel experiences.
+            </p>
+
+             <p className="text-gray-900 mb-4 leading-relaxed">
+             From flights and stays to full-scale travel design, we bring together technology, insight,
+              and passion to make your journeys smoother, smarter, and more meaningful.
             </p>
 
             

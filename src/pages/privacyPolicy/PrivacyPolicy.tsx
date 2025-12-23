@@ -3,6 +3,8 @@ import Inquiryform from "../../components/common/Inquiryform";
 import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import MobContactBar from "../../components/common/MobContactBar";
+import ThreeLine from "../../components/smallcomp/ThreeLinr";
+import NavBar from "../../components/common/navbar/NavBar";
 
 const PrivacyPolicy = () => {
   return (
@@ -18,25 +20,8 @@ const PrivacyPolicy = () => {
         }}
       >
 
-        {/* NAVBAR */}
-        <nav className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white text-black rounded-t-3xl">
-          <img src={logo} alt="logo" className="h-8" />
-
-          <ul className="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#corporate">Corporate</a>
-            <a href="#testimonial">Testimonials</a>
-            <a href="#contact">Contact</a>
-          </ul>
-
-          <button className="hidden lg:block bg-indigo-700 text-white px-4 py-2 rounded-full text-xs font-semibold">
-            Book a Trip
-          </button>
-          <div className="md:hidden text-2xl cursor-pointer">
-  ☰
-</div>
-
+        <NavBar/>
+         <ThreeLine/>
 {/* TABS */}
 <div className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-full -mt-3 z-20">
   <div className="bg-white text-black px-4 py-4 rounded-2xl flex items-center text-[11px] font-bold shadow whitespace-nowrap">
@@ -57,7 +42,7 @@ const PrivacyPolicy = () => {
 
   </div>
 </div>
-        </nav>
+        
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
           <h1 className="text-4xl font-bold leading-tight">
             Privacy Policy <br /> Terms & Conditions

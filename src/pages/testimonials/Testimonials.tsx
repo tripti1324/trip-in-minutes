@@ -28,7 +28,7 @@ const testimonials = [
 
   return (
     <section id="testimonial" className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 hidden lg:flex">
 
         {/* TITLE */}
         <h2 className="text-3xl font-bold mb-10">Testimonials</h2>

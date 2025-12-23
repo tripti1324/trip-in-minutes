@@ -3,26 +3,19 @@ import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import Inquiryform from "../../components/common/Inquiryform";
 import MobContactBar from "../../components/common/MobContactBar";
+import ThreeLine from "../../components/smallcomp/ThreeLinr";
+import NavBar from "../../components/common/navbar/NavBar";
 
 const Contact = () => {
   return (
     <div className="w-full bg-white">
       <MobContactBar />
-      {/* NAVBAR */}
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <img src={logo} alt="Trip in Minutes" className="h-8" />
-
-        <ul className="hidden md:flex items-center gap-6 text-sm cursor-pointer font-medium text-gray-700">
-          <li>About</li>
-          <li>Corporate</li>
-          <li>Services</li>
-          <li>Destinations</li>
-          <li>Contact</li>
-          <button className="bg-indigo-600 hover:bg-violet-500 cursor-pointer text-white px-4 py-2 rounded-md">
-            Book a Trip
-          </button>
-        </ul>
-      </nav>
+      
+          <NavBar/>
+       
+        <ThreeLine/>
+      
+      
 
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-6">

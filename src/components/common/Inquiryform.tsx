@@ -25,9 +25,20 @@ const Inquiryform = () => {
        };
 
   return (
-       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 md:px-20 ">
+    <section id="Inquiryform">  
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 md:px-20">
+        {/* IMAGE - Mobile First */}
+        <div className="relative order-1 lg:order-2">
+          {/* SHADOW */}
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-56 h-10 bg-black/30 blur-2xl rounded-full"></div>
+          {/* IMAGE */}
+          <div className="flex relative justify-center items-end mt-10 lg:mt-0">
+            <img src={girlWithHat} alt="Traveler" className="max-h-[280px] sm:max-h-[380px] lg:max-h-[820px] mx-auto" />
+          </div>
+        </div>
+
         {/* FORM */}
-        <div className="bg-white rounded-2xl px-6 pt-6 pb-4 shadow-md border border-gray-200">
+        <div className="bg-white rounded-2xl px-6 pt-6 pb-4 shadow-md border border-gray-200 order-2 lg:order-1">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input type="text" name="name" placeholder="Name *" onChange={handleInputChange} className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500" required />
             <input type="email" name="email" placeholder="Email *" onChange={handleInputChange} className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500" required />
@@ -52,12 +63,8 @@ const Inquiryform = () => {
             </div>
           </form>
         </div>
-
-       {/* IMAGE */}
-        <div className="flex relative justify-center items-end mt-10 lg:mt-0">
-          <img src={girlWithHat} alt="Traveler" className="max-h-[280px] sm:max-h-[380px] lg:max-h-[820px] mx-auto lg:-ml-20" />
-        </div>
        </div>
+    </section>
      );
 };
 

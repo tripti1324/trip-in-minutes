@@ -1,7 +1,11 @@
 import { girlWithLuggage} from "../../assets";
 import { TripCuate } from "../../assets";
 
-const services = [
+import React from "react";
+
+
+// src/data/services.ts
+export const services = [
   {
     icon: "✈️",
     title: "Tailored Holiday Planning",
@@ -46,57 +50,95 @@ const services = [
     fullWidth: true,
   },
 ];
- {/* CLOUD / BACKGROUND IMAGE */}
-const ServicesSection = () => {
-  return (
-    <section id="services" className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-6 flex flex-row flex-1 gap-12" style={{
-        backgroundImage: ` linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.8)), url(${TripCuate})`,
-        backgroundSize: '70%' , 
-        backgroundPosition: "right",
-        backgroundRepeat: "no-repeat",
-      }}>
-        
-        {/* LEFT CONTENT */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Our Services</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-  {services.map((item, idx) => (
-    <div
-      key={idx}
-      className={`bg-white p-6 rounded-2xl shadow-md ${
-        item.fullWidth ? "sm:col-span-2" : ""
-      }`}
-    >
-                <div className="text-2xl mb-3">{item.icon}</div>
-                <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
+
+ 
+const Services: React.FC = () => {
+  return (
+    <section className="w-full bg-white py-16 "   >    
+
+      <div className="max-w-7xl mx-auto px-5">
+
+
+        {/* HEADING */}
+        {/* MOBILE HEADER (TripCuate + Girl) */}
+<div
+  className="
+    relative
+    lg:hidden
+    bg-no-repeat bg-[length:75%] bg-right
+    min-h-[260px]
+    flex items-end
+    pb-6 pl-4
+  "
+  style={{ backgroundImage: `url(${TripCuate})` }}
+>
+  {/* GIRL IMAGE ON TOP */}
+  <img
+    src={girlWithLuggage}
+    alt="Traveller"
+    className="
+      absolute
+      right-0 bottom-0
+      h-[90%]
+      z-20
+      object-contain
+    "
+  />
+
+  {/* TEXT */}
+  <h2 className="relative z-30 text-3xl font-bold">
+    Our Services
+  </h2>
+</div>
+<h2 className="relative z-30 text-3xl hidden lg:block font-bold">
+    Our Services
+  </h2>
+
+
+        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-4 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
+
+          {/* LEFT – SERVICES */}
+          <div className="relative z-10 grid grid-cols-2 gap-6 sm:gap-12 max-w-[1040px] min-h-[760px] order-2 lg:order-1">
+            {services.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl shadow-lg p-8  ${
+                  item.fullWidth ? "sm:col-span-2" : ""
+                }`}
+              >
+                <div className="flex items-start h-fit min-h-280">
+                  <span className="text-xl">{item.icon}</span>
+                  <div>
+                    <h3 className="font-semibold text-sm mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-md leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+
+            {/* RIGHT – GIRL + BG */}
+            <div className="relative flex justify-end items-end order-1 lg:order-2 mb-10 lg:mb-0 min-h-[760px] h-full hidden lg:block">
+
+            {/* CLOUD BG (desktop + mobile) */}             
+
+            {/* GIRL IMAGE */}
+            <img
+              src={girlWithLuggage}
+              alt="Traveller"
+              className="relative z-20 h-full object-bottom -translate-x-2/3"
+            />
+            </div>
+
         </div>
-
-        {/* RIGHT IMAGE */}
-        <div className="hidden lg:flex relative justify-center items-end">
-  
-  {/* GIRL IMAGE */}
-  <img
-    src={girlWithLuggage}
-    alt="Travel Girl"
-    className="relative z-10 max-h-[820px] translate-x-100"
-  />
-
-
-
-
-          {/* Decorative clouds */}
-          <div className="absolute -z-10 bottom-0 right-0 w-64 h-64 bg-gray-100 rounded-full blur-3xl"></div>
-        </div>
-
       </div>
     </section>
   );
 };
 
-export default ServicesSection;
+export default Services;
