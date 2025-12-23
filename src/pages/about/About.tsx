@@ -1,35 +1,52 @@
-import { timAboutUsImg,logo,AboutusDesktopImage } from "../../assets";
+import { timAboutUsImg,AboutusDesktopImage, AboutusMobileVersionimagecopy} from "../../assets";
 import Inquiryform from "../../components/common/Inquiryform";
 import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import MobContactBar from "../../components/common/MobContactBar";
 import ThreeLine from "../../components/smallcomp/ThreeLinr";
 import NavBar from "../../components/common/navbar/NavBar";
+import TopTab from "../../components/smallcomp/TopTab";
 
 const About = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white ">
       {/* HERO */}
-      <div
-        className="mx-6 mt-4 rounded-3xl overflow-hidden text-white"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${AboutusDesktopImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <MobContactBar />
+      <MobContactBar />
         <NavBar/>
-        <ThreeLine/>
+      <div className="relative w-full min-h-[520px] md:min-h-[580px] rounded-2xl overflow-hidden mx-8 mt-6 ">
+
+  {/* MOBILE BACKGROUND */}
+  <div
+    className="absolute inset-0 w-full md:hidden"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${AboutusMobileVersionimagecopy})`,
+      backgroundSize: "125% auto",
+      backgroundPosition: "50% 35%",
+    }}
+  />
+
+  {/* DESKTOP BACKGROUND */}
+  <div
+    className="absolute inset-0 hidden md:block"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${AboutusDesktopImage})`,
+      backgroundSize: "120% auto",
+      backgroundPosition: "center",
+    }}
+  />
+  <div className="relative z-10 flex items-center md:block min-h-full">
+        
+        <TopTab/>
        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="text-xl font-semibold leading-tight">
+        <div className="max-w-10xl mx-auto px-4 sm:px-6 pt-24 pb-12 md:py-16">
+          <h1 className="text-3xl sm:text-2xl md:text-4xl text-white font-semibold leading-tight">
               Why We Exist — and Why <br />Your Journeys Matter to Us. <br />
             </h1>
-          <h1 className="text-4xl font-bold leading-tight">
+          <h1 className="text-6xl sm:text-5xl md:text-8xl text-white font-bold leading-tight">
              About Us
           </h1>
         </div>
+      </div>
       </div>
 
       

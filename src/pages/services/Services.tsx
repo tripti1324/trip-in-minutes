@@ -99,21 +99,21 @@ const Services: React.FC = () => {
         <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-4 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
 
           {/* LEFT – SERVICES */}
-          <div className="relative z-10 grid grid-cols-2 gap-6 sm:gap-12 max-w-[1040px] min-h-[760px] order-2 lg:order-1">
+          <div className="relative z-10 grid grid-cols-2 gap-4 sm:gap-6 max-w-[1040px] min-h-[760px] order-2 lg:order-1">
             {services.map((item, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-2xl shadow-lg p-8  ${
+                className={`bg-white rounded-sm lg:rounded-2xl shadow-lg p-4 lg:pt-5 lg:px-5 lg:pb-3${
                   item.fullWidth ? "sm:col-span-2" : ""
                 }`}
               >
-                <div className="flex items-start h-fit min-h-280">
+                <div className="flex items-start gap-3 h-fit w-fit">
                   <span className="text-xl">{item.icon}</span>
                   <div>
                     <h3 className="font-semibold text-sm mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-md leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-snug lg:text-base lg:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

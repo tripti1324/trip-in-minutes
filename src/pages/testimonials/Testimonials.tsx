@@ -1,8 +1,12 @@
-import { useState } from "react";
+import React from "react";
+import { testinomial } from "../../assets";
 
+type Testimonial = {
+  text: string;
+  author: string;
+};
 
-const testimonials = [
-
+const testimonials: Testimonial[] = [
   {
     text:
       "Trip in Minutes made our Bali trip effortless! Everything was well-organized, and the price was unbelievable. Highly recommended!",
@@ -20,54 +24,51 @@ const testimonials = [
   },
 ];
 
-
-
-
-  const Testimonial = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
+const Testimonials: React.FC = () => {
   return (
-    <section id="testimonial" className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-6 hidden lg:flex">
+    /* 🔴 HIDDEN ON MOBILE */
+    <section className="hidden md:block w-full bg-white py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold mb-12">Testimonials</h2>
 
-        {/* TITLE */}
-        <h2 className="text-3xl font-bold mb-10">Testimonials</h2>
-
-        {/* TESTIMONIAL CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+        {/* Cards */}
+        <div className="grid grid-cols-3 gap-8">
           {testimonials.map((item, index) => (
-            <div key={index} className="relative max-w-sm mx-auto">
+            <div
+              key={index}
+              className="relative bg-white shadow-xl overflow-hidden"
+            >
+              {/* Blue Quote Column */}
+              <div className="absolute left-0 top-0 h-full w-14  flex items-start justify-center pt-6 z-10">
+                <img src={testinomial} alt="quote" className="w-6 h-6" />
+              </div>
 
-              {/* SHADOW WRAPPER */}
-<div className="relative shadow-[0_35px_60px_rgba(0,0,0,0.18)]"></div>
-
-  {/* CLIPPED CARD */}
-  <div
-    className="relative bg-white p-8 pt-14 z-10"
-    style={{
-      clipPath: "polygon(0 0, 100% 0, 100% 80%, 0 100%)",
-    }}
-  >
-                {/* BIG QUOTE */}
-                <div className="absolute -top-4 left-6 text-indigo-900 text-6xl font-extrabold leading-none">
-                  “
-                </div>
-
-                <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              {/* Content */}
+              <div className="pl-16 pr-6 py-6 relative z-10">
+                <p className="text-black text-m leading-relaxed mb-4">
                   {item.text}
                 </p>
-
-                <p className="text-sm font-semibold text-gray-900">
-                  — {item.author}
+                <p className="font-semibold text-gray-900 text-sm">
+                  – {item.author}
                 </p>
               </div>
-            </div>
+
+              
+             {/* Bottom Cut with Shadow */}
+<div className="absolute bottom-0 left-0 w-full h-12 overflow-hidden">
+  {/* shadow */}
+  <div className="absolute bottom-0 left-0 w-full h-full bg-black/10 blur-lg translate-y-2" />
+
+  {/* cut shape */}
+  <div className="absolute bottom-0 left-0 w-full h-full bg-white transform skew-y-[-4deg] origin-bottom-left" />
+</div>
+</div>
           ))}
         </div>
       </div>
-      
     </section>
   );
 };
 
-export default Testimonial;
+export default Testimonials;

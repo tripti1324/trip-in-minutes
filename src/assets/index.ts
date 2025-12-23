@@ -1,7 +1,5 @@
 import AboutusDesktopImage from './AboutusDesktopImage.jpg';
 import afterheaderDesktopview from './afterheaderDesktopview.jpg';
-
-
 import Andaman from './Andaman.png';
 import bagImg from './bagImg.png';
 import Uttarakhand from './Uttarakhand.png';
@@ -26,8 +24,16 @@ import HimachalPradesh from './HimachalPradesh.png';
 import rajsthan from './rajsthan.png';
 import girlWithHat from './girlWithHat.png';
 import ContactuspageImage from './ContactuspageImage.jpg';
+import AboutusMobileVersionimagecopy from './AboutusMobileVersionimagecopy.png'
+import HomepagemobileversionImage from './HomepagemobileversionImage.jpg'
+import PrivacypoliceMobileVersionPageimage from './PrivacypolicyMobileVersionPageimage.jpg'
+
+
 
 export { AboutusDesktopImage, 
+   AboutusMobileVersionimagecopy,
+ PrivacypoliceMobileVersionPageimage,
+    HomepagemobileversionImage,
     ContactuspageImage,
     girlWithLuggage,
     HimachalPradesh,

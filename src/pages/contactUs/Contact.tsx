@@ -5,6 +5,7 @@ import Inquiryform from "../../components/common/Inquiryform";
 import MobContactBar from "../../components/common/MobContactBar";
 import ThreeLine from "../../components/smallcomp/ThreeLinr";
 import NavBar from "../../components/common/navbar/NavBar";
+import TopTab from "../../components/smallcomp/TopTab";
 
 const Contact = () => {
   return (
@@ -12,8 +13,7 @@ const Contact = () => {
       <MobContactBar />
       
           <NavBar/>
-       
-        <ThreeLine/>
+          <TopTab/>
       
       
 

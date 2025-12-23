@@ -1,56 +1,57 @@
-import { PrivacypolicyPageimage,logo } from "../../assets";
+import { PrivacypolicyPageimage, PrivacypoliceMobileVersionPageimage } from "../../assets";
 import Inquiryform from "../../components/common/Inquiryform";
 import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import MobContactBar from "../../components/common/MobContactBar";
 import ThreeLine from "../../components/smallcomp/ThreeLinr";
 import NavBar from "../../components/common/navbar/NavBar";
+import TopTab from "../../components/smallcomp/TopTab";
+
 
 const PrivacyPolicy = () => {
   return (
     <section className="bg-white">
       {/* HERO */}
       <MobContactBar />
-      <div
-        className="mx-6 mt-4 rounded-3xl overflow-hidden text-white"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${PrivacypolicyPageimage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <NavBar/>
+      
+     <div className="relative w-full min-h-[520px] md:min-h-[580px] rounded-2xl overflow-hidden mx-8 mt-6 ">
+  
+  {/* MOBILE BACKGROUND */}
+  <div
+    className="absolute inset-0 w-full md:hidden"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${PrivacypoliceMobileVersionPageimage})`,
+      backgroundSize: "125% auto",
+      backgroundPosition: "50% 35%",
+    }}
+  />
 
-        <NavBar/>
-         <ThreeLine/>
-{/* TABS */}
-<div className="block lg:hidden absolute left-1/2 -translate-x-1/2 top-full -mt-3 z-20">
-  <div className="bg-white text-black px-4 py-4 rounded-2xl flex items-center text-[11px] font-bold shadow whitespace-nowrap">
+  {/* DESKTOP BACKGROUND */}
+  <div
+    className="absolute inset-0 hidden md:block"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${PrivacypolicyPageimage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+
+  {/* CONTENT (UNCHANGED) */}
+  <div className="relative z-10">
     
-    <span className="px-3">Flights</span>
-    <span className="h-6 w-px bg-gray-500 shadow-xl-gray"></span>
+    <TopTab/>
 
-    <span className="px-3">Hotels</span>
-    <span className="h-6 w-px bg-gray-500"></span>
 
-    <span className="px-3">Packages</span>
-    <span className="h-6 w-px bg-gray-500"></span>
-
-    <span className="px-3">Visa</span>
-    <span className="h-6 w-px bg-gray-500"></span>
-
-    <span className="px-3">Transportation</span>
-
-  </div>
-</div>
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+        <div className="max-w-4xl text-white mx-auto px-4 sm:px-6 py-16">
           <h1 className="text-4xl font-bold leading-tight">
             Privacy Policy <br /> Terms & Conditions
           </h1>
         </div>
       </div>
 
-      
+      </div>
 
       {/* CONTENT */}
       <div className="max-w-5xl ml-14 px-6 py-20">

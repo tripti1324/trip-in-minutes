@@ -1,8 +1,9 @@
-import { afterheaderDesktopview,earthIcon,logo,flashIcon ,timAboutUsImg, girlWithLuggage,TripCuate, Mice} from "../../assets";
+import { afterheaderDesktopview,earthIcon,logo,flashIcon ,HomepagemobileversionImage, timAboutUsImg, girlWithLuggage,TripCuate, Mice} from "../../assets";
 import { useState } from "react";
-import{Andaman, Kerala,
- Uttarakhand,
-    JammuKashmir, Karnataka, Lakshadweep,Goa, rajsthan, HimachalPradesh} from "../../assets";
+import{Andaman, Kerala,Uttarakhand,
+  JammuKashmir, Karnataka, Lakshadweep,Goa, rajsthan, HimachalPradesh} from "../../assets";
+
+
 import MobContactBar from "../common/MobContactBar";
 import Testimonial from "../../pages/testimonials/Testimonials";
 import Footer from "../footer/Footer";
@@ -12,7 +13,7 @@ import ThreeLine from "../smallcomp/ThreeLinr";
 import Navbar from "../common/navbar/NavBar";
 import Services from "../../pages/services/Services";
 import TopTab from "../smallcomp/TopTab";
-import TopTabs from "../smallcomp/TopTab";
+
 
 const domestic = [
   { name: "Goa", img: Goa },
@@ -58,18 +59,33 @@ const Header = () => {
     <>
       {/* ================= HEADER / HERO ================= */}
       <MobContactBar/>
-      <header
-        className="mx-6 mt-4 rounded-3xl  text-whiterelative"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${afterheaderDesktopview})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-       <Navbar/>
-       
-       <TopTab/>
-        
+      <header className="relative mx-6 mt-4 rounded-3xl overflow-hidden ">
+  
+  {/* MOBILE BACKGROUND */}
+  <div
+    className="absolute inset-0 md:hidden"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${HomepagemobileversionImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+
+  {/* DESKTOP BACKGROUND */}
+  <div
+    className="absolute inset-0 hidden md:block"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${afterheaderDesktopview})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+
+  {/* CONTENT (UNCHANGED) */}
+  <div className="relative z-10">
+    <Navbar/>
+    <TopTab/>
+
 
 
 
@@ -89,7 +105,7 @@ const Header = () => {
               dreams.
             </p>
 
-            <div className=" flex gap-3 mt-6">
+            <div className=" hidden md:flex gap-3 mt-6">
               <div className="flex items-center gap-3 bg-white text-black px-5 py-2.5 rounded-2xl text-xs shadow-sm">
                 <img src={flashIcon} className="h-5 w-5 shrink-0" />
                 <div className="leading-tight">
@@ -142,11 +158,18 @@ const Header = () => {
                 placeholder="Message"
               />
 
-              <div className="flex flex-col sm:flex-row gap-3 mt-4">
+              <div className="flex flex-row sm:flex-row sm:items-center gap-3 mt-4">
                 <button 
                   type="submit"
                   disabled={!isFormValid}
-                  className="bg-indigo-900 hover:bg-indigo-700 px-8 py-2 w-36 rounded-lg text-sm text-white flex items-center justify-center"
+                  className="bg-indigo-900 hover:bg-indigo-700
+    px-4 py-3            /* mobile: smaller width */
+    sm:px-6 sm:py-3      /* desktop: unchanged */
+    w-auto
+    rounded-lg
+    text-sm sm:text-sm   /* mobile font smaller */
+    text-white
+    flex items-center justify-center"
                 >
                 Send Inquiry
                 </button>
@@ -156,7 +179,15 @@ const Header = () => {
                     const section = document.getElementById('destinations');
                     section?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="bg-white/90 text-black hover:bg-slate-400 px-8 py-2 rounded-lg text-bold"
+                  className="bg-white/90 text-black hover:bg-slate-400
+    px-4 py-3                 /* mobile: smaller width */
+    sm:px-6 sm:py-3           /* desktop: unchanged */
+    w-auto sm:w-auto          /* prevent full width on mobile */
+    min-w-[140px] sm:min-w-[200px]
+    rounded-lg
+    text-sm sm:text-sm        /* mobile font smaller */
+    font-semibold
+    text-center"
                 >
                   Explore Destinations
                 </button>
@@ -164,12 +195,13 @@ const Header = () => {
             </form>
           </div>
           </div>
+        </div>
         
       </header>
 
       {/* ================= ABOUT SECTION ================= */}
       <section id="about" className="w-full bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2  gap-12 items-center">
           {/* LEFT CONTENT */}
           <div>
             <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 text-center md:text-left">ABOUT US</h2>
@@ -236,10 +268,10 @@ const Header = () => {
       />
 
       {/* HEADING */}
-      <div className="md:pl-2">
-     <h2 className="relative z-10 text-4xl font-bold leading-[1.15] px-6 md:px-0">
+      <div className="md:max-w-[695px]">
+     <h2 className="relative z-10 text-4xl mb-2 md:text-[42px] font-bold leading-[1.1] px-6 md:px-0">
      <span className="md:hidden">Corporate,</span>
-     <span className="hidden md:inline">Corporate, Travel, Simplified</span>
+     <span className="hidden md:inline mb-0">Corporate, Travel, Simplified</span>
      <br className="md:hidden" />
      <span className="md:hidden">Travel,</span>
      <br className="md:hidden" />
@@ -247,28 +279,30 @@ const Header = () => {
 </h2>
 </div>
 </div>
-<div className="hidden md:flex justify-end -mt-6">
-  <img
-    src={Mice}
-    alt="Corporate Travel Illustration"
-    className="w-[540px]"
-  />
-</div>
-    
-    <div className="md:grid md:grid-cols-2 md:gap-12 md:items-center mt-6">
+    <div className="relative md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-start">
 
-    {/* PARAGRAPH (NORMAL) */}
-    <p className="relative z-10 mt-4 text-gray-700 leading-[1.65] max-w-[560px] px-6 md:px-0">
-      From business trips and team movements to events and incentive tours —
-      our Corporate Travel Solutions offer smooth coordination, smart planning,
-      and reliable support for every level of corporate travel.
-      We streamline the entire experience so your teams can move confidently,
-      efficiently, and without disruptions.
-    </p>
-    <div className="hidden md:flex justify-end mt-8">
- 
+  {/* PARAGRAPH */}
+  <div>
+  <p className="relative z-10 text-black text-lg leading-[1.7] max-w-[560px] px-6 md:px-0 md:mt-1" >
+    From business trips and team movements to events and incentive tours —
+    our Corporate Travel Solutions offer smooth coordination, smart planning,
+    and reliable support for every level of corporate travel.
+    We streamline the entire experience so your teams can move confidently,
+    efficiently, and without disruptions.
+  </p>
 </div>
+  {/* DESKTOP IMAGE – PARALLEL TO PARAGRAPH */}
+  <div className="hidden md:flex justify-end md:-mt-6">
+    <img
+      src={Mice}
+      alt="Corporate Travel Illustration"
+      className="w-[520px]"
+    />
+    
+  </div>
+
 </div>
+
   </div>
 </section>
 
