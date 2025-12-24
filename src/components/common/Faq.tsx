@@ -28,7 +28,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-   <section className="max-w-4xl px-20 mb-6">
+   <section className="max-w-4xl px-4 md:px-20 mb-6">
           <h2 className="text-3xl font-bold mb-8 mt-20">
             Frequently Asked Questions
           </h2>

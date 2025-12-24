@@ -28,10 +28,20 @@ import AboutusMobileVersionimagecopy from './AboutusMobileVersionimagecopy.png'
 import HomepagemobileversionImage from './HomepagemobileversionImage.jpg'
 import PrivacypoliceMobileVersionPageimage from './PrivacypolicyMobileVersionPageimage.jpg'
 import ContactusMobileVersionpageImage1 from './ContactusMobileVersionpageImage1.jpg'
+import Phone from './Phone.png'
+import Email from './Email.png'
+import Facebook from './Facebook.png'
+import linkdlin from './linkdlin.png'
+import Instagram from './Instagram.png'
 
 
 
 export { AboutusDesktopImage, 
+   Phone,
+   Email,
+   Facebook,
+   linkdlin,
+   Instagram,
    ContactusMobileVersionpageImage1,
    AboutusMobileVersionimagecopy,
  PrivacypoliceMobileVersionPageimage,

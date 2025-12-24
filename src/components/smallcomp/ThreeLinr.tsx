@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ThreeLine = () => {
   const [open, setOpen] = useState(false);
-
+useEffect(() => {
+  document.body.style.overflow = open ? "hidden" : "auto";
+}, [open]);
   return (
     <>
       {/* HAMBURGER ICON (MOBILE ONLY) */}
@@ -30,12 +32,46 @@ const ThreeLine = () => {
           </div>
 
           {/* LINKS */}
-          <nav className="flex flex-col items-end justify-center gap-2 text-lg font-medium pr-8">
-            <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-            <Link to="/about" onClick={() => setOpen(false)}>About Us</Link>
-            <Link to="/destinations" onClick={() => setOpen(false)}>Destinations</Link>
-            <Link to="/contact" onClick={() => setOpen(false)}>Contact Us</Link>
-            <Link to="/privacy-policy" onClick={() => setOpen(false)}>Privacy Policy</Link>
+          <nav className="w-full flex flex-col gap-3 mt-10">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
+            >
+              Home
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
+            >
+              About Us
+            </Link>
+
+           <Link
+  to="/#destinations"
+  onClick={() => setOpen(false)}
+  className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
+>
+  Destinations
+</Link>
+
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
+            >
+              Contact Us
+            </Link>
+
+            <Link
+              to="/privacy-policy"
+              onClick={() => setOpen(false)}
+              className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
+            >
+              Privacy Policy
+            </Link>
           </nav>
         </div>
       )}

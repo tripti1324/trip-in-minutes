@@ -87,7 +87,7 @@ const Services: React.FC = () => {
   />
 
   {/* TEXT */}
-  <h2 className="relative z-30 text-3xl font-bold">
+  <h2 className="relative z-30 text-3xl font-bold break-words leading-tight w-40">
     Our Services
   </h2>
 </div>
@@ -96,24 +96,40 @@ const Services: React.FC = () => {
   </h2>
 
 
-        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-4 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
+        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
 
           {/* LEFT – SERVICES */}
-          <div className="relative z-10 grid grid-cols-2 gap-4 sm:gap-6 max-w-[1040px] min-h-[760px] order-2 lg:order-1">
+          <div className="relative z-10
+  grid grid-cols-2 sm:grid-cols-2
+  gap-3 sm:gap-6
+  w-full
+  order-2 lg:order-1">
             {services.map((item, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-sm lg:rounded-2xl shadow-lg p-4 lg:pt-5 lg:px-5 lg:pb-3${
-                  item.fullWidth ? "sm:col-span-2" : ""
-                }`}
+                className={`bg-white
+  rounded-xl lg:rounded-2xl
+  shadow-lg
+  ${index === services.length - 1 ? "w-[319px] h-[80px]" : "w-[154px] h-[100px]"}
+  sm:w-auto sm:h-auto
+  p-2 sm:p-4 lg:pt-5 lg:px-5 lg:pb-3
+  overflow-hidden${
+    item.fullWidth ? "lg:col-span-2" : ""
+  }`}
               >
-                <div className="flex items-start gap-3 h-fit w-fit">
-                  <span className="text-xl">{item.icon}</span>
+                <div className="flex items-start gap-3 w-full">
+                  <span className="w-4 h-4 shrink-0 flex items-center justify-center">{item.icon}</span>
                   <div>
-                    <h3 className="font-semibold text-sm mb-1">
+                    <h3 className="font-semibold text-[9px] sm:text-sm mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-snug lg:text-base lg:leading-relaxed">
+                    <p className="text-gray-600
+  text-[9px]
+  leading-[1.35]
+  
+  sm:text-sm
+  lg:text-base
+  lg:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -131,7 +147,7 @@ const Services: React.FC = () => {
             <img
               src={girlWithLuggage}
               alt="Traveller"
-              className="relative z-20 h-full object-bottom -translate-x-2/3"
+              className="relative z-20 h-full object-bottom -translate-x-1/2"
             />
             </div>
 
