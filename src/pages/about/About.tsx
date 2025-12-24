@@ -13,15 +13,16 @@ const About = () => {
       {/* HERO */}
       <MobContactBar />
         <NavBar/>
-      <div className="relative w-full min-h-[520px] md:min-h-[580px] rounded-2xl overflow-hidden mx-8 mt-6 ">
+      <div className="relative h-[420px] rounded-2xl overflow-hidden mx-8 mt-6 ">
 
   {/* MOBILE BACKGROUND */}
   <div
     className="absolute inset-0 w-full md:hidden"
     style={{
       backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${AboutusMobileVersionimagecopy})`,
-      backgroundSize: "125% auto",
-      backgroundPosition: "50% 35%",
+      backgroundSize: "contain",
+     backgroundPosition: window.innerWidth < 768 ? "15% center" : "center",
+    backgroundRepeat: "no-repeat",
     }}
   />
 

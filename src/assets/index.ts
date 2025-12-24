@@ -27,10 +27,12 @@ import ContactuspageImage from './ContactuspageImage.jpg';
 import AboutusMobileVersionimagecopy from './AboutusMobileVersionimagecopy.png'
 import HomepagemobileversionImage from './HomepagemobileversionImage.jpg'
 import PrivacypoliceMobileVersionPageimage from './PrivacypolicyMobileVersionPageimage.jpg'
+import ContactusMobileVersionpageImage1 from './ContactusMobileVersionpageImage1.jpg'
 
 
 
 export { AboutusDesktopImage, 
+   ContactusMobileVersionpageImage1,
    AboutusMobileVersionimagecopy,
  PrivacypoliceMobileVersionPageimage,
     HomepagemobileversionImage,

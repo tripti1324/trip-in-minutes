@@ -1,4 +1,4 @@
-import { logo,ContactuspageImage } from "../../assets";
+import { logo,ContactuspageImage , ContactusMobileVersionpageImage1} from "../../assets";
 import Faq from "../../components/common/Faq"
 import Footer from "../../components/footer/Footer";
 import Inquiryform from "../../components/common/Inquiryform";
@@ -9,22 +9,42 @@ import TopTab from "../../components/smallcomp/TopTab";
 
 const Contact = () => {
   return (
-    <div className="w-full bg-white">
+    <div className=" bg-white">
       <MobContactBar />
-      
           <NavBar/>
-          <TopTab/>
-      
-      
+            <TopTab/>
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6">
-        <div
-          className="relative h-[420px] rounded-2xl overflow-hidden bg-cover bg-center"
-          style={{ backgroundImage: `url(${ContactuspageImage})` }}
-        >
+      
+        <section className="relative h-[420px] rounded-2xl overflow-hidden mx-8 mt-6">
+
+  {/* MOBILE BACKGROUND */}
+  <div
+    className="absolute  inset-0 md:hidden"
+    style={{
+      backgroundImage: `url(${ContactusMobileVersionpageImage1})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+
+  {/* DESKTOP BACKGROUND */}
+  <div
+    className="absolute inset-0 hidden md:block"
+    style={{
+      backgroundImage: `url(${ContactuspageImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+
+    
+  />
+  
+
+          
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
+
 
           {/* Text */}
           <div className="relative z-10 h-full flex items-center">
@@ -40,8 +60,7 @@ const Contact = () => {
               </h1>
             </div>
           </div>
-        </div>
-       
+      
 
       </section>
        <div className="mt-16 ml-0">

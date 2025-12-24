@@ -15,15 +15,15 @@ const PrivacyPolicy = () => {
       <MobContactBar />
       <NavBar/>
       
-     <div className="relative w-full min-h-[520px] md:min-h-[580px] rounded-2xl overflow-hidden mx-8 mt-6 ">
+     <div className="relative h-[420px] rounded-2xl overflow-hidden mx-8 mt-6 ">
   
   {/* MOBILE BACKGROUND */}
   <div
     className="absolute inset-0 w-full md:hidden"
     style={{
       backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${PrivacypoliceMobileVersionPageimage})`,
-      backgroundSize: "125% auto",
-      backgroundPosition: "50% 35%",
+      backgroundSize: "cover",
+      backgroundPosition: "right top",
     }}
   />
 
@@ -32,13 +32,13 @@ const PrivacyPolicy = () => {
     className="absolute inset-0 hidden md:block"
     style={{
       backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${PrivacypolicyPageimage})`,
-      backgroundSize: "cover",
+      backgroundSize: "120% auto   ",
       backgroundPosition: "center",
     }}
   />
 
   {/* CONTENT (UNCHANGED) */}
-  <div className="relative z-10">
+  <div className="relative z-10 flex items-center md:block min-h-full">
     
     <TopTab/>
 

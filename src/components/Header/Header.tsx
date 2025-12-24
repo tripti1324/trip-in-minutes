@@ -337,17 +337,17 @@ const Header = () => {
 
         {/* CARDS */}
         {activeTab === "domestic" && (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10 auto-rows-fr">
             {domestic.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl shadow-md p-3 sm:p-4 text-center"
+                className="bg-white rounded-3xl shadow-md p-3 sm:p-2 text-center"
               >
-                <div className="rounded-2xl overflow-hidden">
+                <div className="rounded-3xl overflow-visible sm:overflow-hidden">
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="aspect-[4/3] sm:h-40 w-full object-cover"
+                    className="aspect-[16/9] sm:aspect-[4/3] rounded-3xl sm:h-40 w-full object-cover"
                   />
                 </div>
 
