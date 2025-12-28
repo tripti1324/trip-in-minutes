@@ -33,10 +33,35 @@ import Email from './Email.png'
 import Facebook from './Facebook.png'
 import linkdlin from './linkdlin.png'
 import Instagram from './Instagram.png'
-
+import Bali from './Bali.png'
+import Bangkok1 from './Bangkok1.png'
+import Dubai from './Dubai.png'
+import England from './England.png'
+import France from './France.png'
+import Italy from './Italy.png'
+import Malaysia from './Malaysia.png'
+import Maldives from './Maldives.png'
+import Mauritius1 from './Mauritius1.png'
+import Qatar from './Qatar.png'
+import SaudiArabia from './SaudiArabia.png'
+import Singapore from './Singapore.png'
+import Vietnam from './Vietnam.png'
 
 
 export { AboutusDesktopImage, 
+   Bali,
+   Bangkok1,
+   Dubai,
+   England,
+   France,
+   Italy,
+   Malaysia,
+   Maldives,
+   Mauritius1,
+   Qatar,
+   SaudiArabia,
+   Singapore,
+   Vietnam,
    Phone,
    Email,
    Facebook,

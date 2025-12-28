@@ -63,13 +63,7 @@ const Services: React.FC = () => {
         {/* HEADING */}
         {/* MOBILE HEADER (TripCuate + Girl) */}
 <div
-  className="
-    relative
-    lg:hidden
-    bg-no-repeat bg-[length:75%] bg-right
-    min-h-[260px]
-    flex items-end
-    pb-6 pl-4
+  className="relative lg:hidden bg-no-repeat bg-[length:75%] bg-right min-h-[260px] flex items-end pb-6 pl-4
   "
   style={{ backgroundImage: `url(${TripCuate})` }}
 >
@@ -77,14 +71,7 @@ const Services: React.FC = () => {
   <img
     src={girlWithLuggage}
     alt="Traveller"
-    className="
-      absolute
-      right-0 bottom-0
-      h-[90%]
-      z-20
-      object-contain
-    "
-  />
+    className="absolute right-0 bottom-0  h-[90%]  z-20 object-contain  "/>
 
   {/* TEXT */}
   <h2 className="relative z-30 text-3xl font-bold break-words leading-tight w-40">
@@ -99,21 +86,14 @@ const Services: React.FC = () => {
         <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
 
           {/* LEFT – SERVICES */}
-          <div className="relative z-10
-  grid grid-cols-2 sm:grid-cols-2
-  gap-3 sm:gap-6
-  w-full
-  order-2 lg:order-1">
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 w-full order-2 lg:order-1">
             {services.map((item, index) => (
               <div
                 key={index}
                 className={`bg-white
   rounded-xl lg:rounded-2xl
   shadow-lg
-  ${index === services.length - 1 ? "w-[319px] h-[80px]" : "w-[154px] h-[100px]"}
-  sm:w-auto sm:h-auto
-  p-2 sm:p-4 lg:pt-5 lg:px-5 lg:pb-3
-  overflow-hidden${
+  ${index === services.length - 1 ? "w-[319px] h-[80px]" : "w-[154px] h-[100px]"} sm:w-auto sm:h-auto p-2 sm:p-4 lg:pt-5 lg:px-5 lg:pb-3 overflow-hidden${
     item.fullWidth ? "lg:col-span-2" : ""
   }`}
               >
@@ -123,13 +103,7 @@ const Services: React.FC = () => {
                     <h3 className="font-semibold text-[9px] sm:text-sm mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600
-  text-[9px]
-  leading-[1.35]
-  
-  sm:text-sm
-  lg:text-base
-  lg:leading-relaxed">
+                    <p className="text-gray-600 text-[9px] leading-[1.35] sm:text-sm lg:text-base lg:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

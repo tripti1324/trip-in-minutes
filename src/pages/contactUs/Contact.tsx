@@ -39,23 +39,25 @@ const Contact = () => {
 
     
   />
-  
-
-          
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
 
 
           {/* Text */}
-          <div className="relative z-10 h-full flex items-center">
-            <div className="text-white px-8">
-              <p className="text-sm mb-2">
+          <div className="relative z-10 h-full flex items-center justify-center md:justify-start">
+            <div className="text-white
+    px-6 md:px-20
+    text-center md:text-left">
+              <p className="
+        text-[17px] md:text-[40px] mb-0 leading-[22px] md:leading-[44px] ">
                 Tell Us Your Travel Idea
               </p>
-              <p className="text-lg mb-4">
+              <p className="text-[17px] md:text-[40px] mb-0 leading-[22px] md:leading-[44px]">
                 We’ll Shape the Journey.
               </p>
-              <h1 className="text-4xl md:text-5xl font-bold">
+              <h1 className="font-bold
+        text-[38px]        
+        md:text-[70px]">
                 Contact us
               </h1>
             </div>

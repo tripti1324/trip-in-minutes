@@ -42,10 +42,10 @@ import TopTab from "../../components/smallcomp/TopTab";
           }}
         />
 
-        <div className="relative z-10 flex items-center md:block min-h-full">
+        <div className="relative z-10 flex items-center min-h-full">
           <TopTab />
 
-          <div className="max-w-10xl mx-auto px-4 sm:px-6 pt-24 pb-12 md:py-16">
+          <div className="max-w-10xl mx-auto md:mx-0 px-4 sm:px-6 md:pl-20">
             <h1 className="text-[17px] md:text-[40px] text-white font-semibold leading-tight">
               Why We Exist — and Why <br />
               Your Journeys Matter to Us.

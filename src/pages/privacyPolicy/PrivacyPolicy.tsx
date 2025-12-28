@@ -45,8 +45,8 @@ const PrivacyPolicy = () => {
 
 
         
-        <div className="max-w-4xl text-white mx-auto px-4 sm:px-6 py-16">
-          <h1 className="text-4xl font-bold leading-tight text-[28px] md:text-[69px]">
+        <div className="max-w-4xl text-white mx-auto px-2 md:px-10 py-16 text-center md:text-left">
+          <h1 className="font-bold leading-tight text-[28px] md:text-[69px] mx-auto md:mx-0">
             Privacy Policy <br /> Terms & Conditions
           </h1>
         </div>

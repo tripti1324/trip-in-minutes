@@ -29,8 +29,8 @@ const Inquiryform = () => {
        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 md:px-20 items-start">
         {/* IMAGE - Mobile First */}
         <div className="relative order-1 lg:order-2">
-          {/* SHADOW */}
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-56 h-10 bg-black/30 blur-2xl rounded-full"></div>
+         
+
           {/* IMAGE */}
           <div className="flex relative justify-center items-end  lg:mt-0">
             <img src={girlWithHat} alt="Traveler" className="w-[319px] h-[308px]

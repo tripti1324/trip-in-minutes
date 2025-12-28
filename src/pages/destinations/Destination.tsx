@@ -1,7 +1,7 @@
 import { useState } from "react";
 import{Andaman, Kerala,
  Uttarakhand,
-    JammuKashmir, Karnataka, Lakshadweep,Goa, rajsthan, HimachalPradesh} from "../../assets";
+    JammuKashmir, Karnataka, Lakshadweep,Goa, rajsthan, HimachalPradesh, Bali,Bangkok1,Dubai,England,France,Italy,Malaysia,Maldives,Mauritius1,Qatar,SaudiArabia,Singapore,Vietnam} from "../../assets";
   
  
 
@@ -14,9 +14,23 @@ const domestic = [
   { name: "Rajasthan", img: rajsthan },
   { name: "Jammu & Kashmir", img: JammuKashmir },
   { name: "Karnataka", img: Karnataka },
-  { name: "Lakshadweep", img: Lakshadweep },
+ 
 ];
-
+const international = [
+ { name: "Bali", img: Bali },
+  { name: "Bangkok", img: Bangkok1 },
+  { name: "Dubai", img: Dubai },
+  { name: "England ", img: England },
+  { name: "France", img: France },
+  { name: "Italy", img: Italy },
+  { name: "Malasiya", img: Malaysia },
+  { name: "Maldives", img: Maldives },
+  { name: "Mauritius", img: Mauritius1},
+  { name: "Qatar ", img: Qatar },
+  { name: "SaudiArabia ", img: SaudiArabia },
+  { name: "Singapore ", img: Singapore },
+  { name: "Vietnam", img: Vietnam },
+];
 const Destinations = () => {
   const [activeTab, setActiveTab] = useState<"domestic" | "international">(
     "domestic"
@@ -77,8 +91,25 @@ const Destinations = () => {
 
         {/* INTERNATIONAL PLACEHOLDER */}
         {activeTab === "international" && (
-          <div className="text-center text-gray-500 mt-10">
-            International destinations coming soon 🌍
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {international.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-md p-4 text-center"
+              >
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={item.img || "https://via.placeholder.com/300"}
+                    alt={item.name}
+                    className="h-40 w-full object-cover"
+                  />
+                </div>
+
+                <p className="mt-4 font-semibold text-gray-900">
+                  {item.name}
+                </p>
+              </div>
+            ))}
           </div>
         )}
 

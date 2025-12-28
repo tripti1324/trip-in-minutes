@@ -1,23 +1,6 @@
-import {
-  afterheaderDesktopview,
-  earthIcon,
-  flashIcon,
-  HomepagemobileversionImage,
-  timAboutUsImg,
-  Mice,
-} from "../../assets";
+import {afterheaderDesktopview,earthIcon,flashIcon,HomepagemobileversionImage,timAboutUsImg,Mice,Bali,Bangkok1,Dubai,England,France,Italy,Malaysia,Maldives,Mauritius1,Qatar,SaudiArabia,Singapore,Vietnam} from "../../assets";
 import { useState } from "react";
-import {
-  Andaman,
-  Kerala,
-  Uttarakhand,
-  JammuKashmir,
-  Karnataka,
-  Lakshadweep,
-  Goa,
-  rajsthan,
-  HimachalPradesh,
-} from "../../assets";
+import {Andaman,Kerala,Uttarakhand,JammuKashmir,Karnataka,Lakshadweep,Goa,rajsthan,HimachalPradesh,} from "../../assets";
 
 import MobContactBar from "../common/MobContactBar";
 import Testimonial from "../../pages/testimonials/Testimonials";
@@ -27,7 +10,7 @@ import FAQSection from "../common/Faq";
 import Navbar from "../common/navbar/NavBar";
 import Services from "../../pages/services/Services";
 import TopTab from "../smallcomp/TopTab";
-
+import FormHomePage from "../smallcomp/FormHomePage";
 const domestic = [
   { name: "Goa", img: Goa },
   { name: "Andaman", img: Andaman },
@@ -38,6 +21,22 @@ const domestic = [
   { name: "Jammu & Kashmir", img: JammuKashmir },
   { name: "Karnataka", img: Karnataka },
   { name: "Lakshadweep", img: Lakshadweep },
+];
+
+const international = [
+ { name: "Bali", img: Bali },
+  { name: "Bangkok", img: Bangkok1 },
+  { name: "Dubai", img: Dubai },
+  { name: "England ", img: England },
+  { name: "France", img: France },
+  { name: "Italy", img: Italy },
+  { name: "Malasiya", img: Malaysia },
+  { name: "Maldives", img: Maldives },
+  { name: "Mauritius", img: Mauritius1},
+  { name: "Qatar ", img: Qatar },
+  { name: "SaudiArabia ", img: SaudiArabia },
+  { name: "Singapore ", img: Singapore },
+  { name: "Vietnam", img: Vietnam },
 ];
 
 const Header = () => {
@@ -53,30 +52,17 @@ const Header = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const isFormValid =
-    formData.name.trim() && formData.email.trim() && formData.mobile.trim();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name") as string;
-    const email = form.get("email") as string;
-    const mobile = form.get("mobile") as string;
-    const message = form.get("message") as string;
-
-    const text = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`;
-    const whatsappUrl = `https://wa.me/917411605384?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, "_blank");
-  };
+  
 
   return (
     <>
       {/* ================= HEADER / HERO ================= */}
       <MobContactBar />
-      <header className="relative mx-6 mt-4 rounded-3xl overflow-hidden ">
+      <Navbar />
+      <header className="relative mx-6 mt-4 rounded-3xl overflow-hidden pt-[0px] md:pt-[0px] ">
         {/* MOBILE BACKGROUND */}
         <div
-          className="absolute inset-0 md:hidden"
+          className="absolute left-0 right-0 w-full h-full md:hidden"
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${HomepagemobileversionImage})`,
             backgroundSize: "cover",
@@ -86,7 +72,7 @@ const Header = () => {
 
         {/* DESKTOP BACKGROUND */}
         <div
-          className="absolute inset-0 hidden md:block"
+          className="absolute left-0 right-0 h-[588px] hidden md:block"
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${afterheaderDesktopview})`,
             backgroundSize: "cover",
@@ -96,16 +82,21 @@ const Header = () => {
 
         {/* CONTENT (UNCHANGED) */}
         <div className="relative z-10">
-          <Navbar />
+          
           <TopTab />
 
-          {/* HERO CONTENT */}
-          <div className="flex flex-col lg:flex-row justify-between px-6 lg:px-12 py-10 gap-10">
+          {/* HERO CONTENT   flex flex-col lg:flex-row justify-between px-6 lg:px-12 py-10 gap-2 */}
+          <div className="flex flex-col lg:flex-row 
+  justify-center lg:justify-between
+  lg:items-center 
+  px-6 lg:px-12 py-10
+  gap-2
+  md:min-h-[588px]">
             {/* LEFT */}
             <div className="max-w-xl mx-auto text-center lg:text-left lg:mx-0">
               <h1
                 className="font-bold text-white leading-tight
-    text-[clamp(1.3rem,4.2vw,2.25rem)]
+    text-[23px] sm:text-[53px]
     text-center lg:text-left"
               >
                 <span className="block whitespace-nowrap">
@@ -118,7 +109,7 @@ const Header = () => {
 
               <p
                 className="mt-4 text-white opacity-90
-    text-[clamp(0.7rem,2.4vw,0.875rem)]
+    text-[9px] sm:text-[21px]
     text-center lg:text-left
     max-w-[90%] mx-auto lg:mx-0"
               >
@@ -149,117 +140,7 @@ const Header = () => {
             </div>
 
             {/* FORM */}
-            <div
-              className="bg-transparent backdrop-transparent-sm
-  p-4 sm:p-6                 /* smaller padding on mobile */
-  rounded-2xl
-  w-full max-w-[340px]       /* mobile width like Figma */
-  sm:max-w-full
-  lg:w-[420px]               /* desktop unchanged */
-  mx-auto    "
-            >
-              <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-                <input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="px-4
-  py-2 sm:py-3              /* smaller height on mobile */
-  rounded-lg
-  bg-transparent
-  border border-white/40
-  text-white
-  text-sm
-  placeholder-white/70
-  focus:outline-none"
-                  placeholder="Name"
-                />
-                <input
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="px-4
-  py-2 sm:py-3              /* smaller height on mobile */
-  rounded-lg
-  bg-transparent
-  border border-white/40
-  text-white
-  text-sm
-  placeholder-white/70
-  focus:outline-none"
-                  placeholder="Email"
-                />
-                <input
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  className="px-4
-  py-2 sm:py-3              /* smaller height on mobile */
-  rounded-lg
-  bg-transparent
-  border border-white/40
-  text-white
-  text-sm
-  placeholder-white/70
-  focus:outline-none"
-                  placeholder="Mobile"
-                />
-                <textarea
-                  name="message"
-                  onChange={handleInputChange}
-                  rows={5}
-                  className="px-4
-  py-2 sm:py-3              /* smaller height on mobile */
-  rounded-lg
-  bg-transparent
-  border border-white/40
-  text-white
-  text-sm
-  placeholder-white/70
-  focus:outline-none"
-                  placeholder="Message"
-                />
-
-                <div
-                  className="flex
-  justify-center              /* center buttons */
-  gap-2 sm:gap-3
-  mt-3 sm:mt-4
-  flex-nowrap  "
-                >
-                  <button
-                    type="submit"
-                    disabled={!isFormValid}
-                    className="bg-indigo-900 hover:bg-indigo-700
-  px-3 py-2 sm:px-6 sm:py-3
-  rounded-lg
-  text-[10px] xs:text-[11px] sm:text-sm       /* smaller on mobile */
-  whitespace-nowrap            /* FORCE single line */
-  text-white
-  flex items-center justify-center"
-                  >
-                    Send Inquiry
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const section = document.getElementById("destinations");
-                      section?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="bg-white/90 text-black hover:bg-slate-400
-  px-3 py-2 sm:px-6 sm:py-3
-  min-w-[110px] sm:min-w-[200px]
-  rounded-lg
-  text-[10px] xs:text-[11px] sm:text-sm       /* responsive text */
-  whitespace-nowrap            /* NO line break */
-  font-semibold
-  text-center"
-                  >
-                    Explore Destinations
-                  </button>
-                </div>
-              </form>
-            </div>
+            <FormHomePage />
           </div>
         </div>
       </header>
@@ -463,8 +344,34 @@ const Header = () => {
 
           {/* INTERNATIONAL PLACEHOLDER */}
           {activeTab === "international" && (
-            <div className="text-center text-gray-500 mt-10">
-              International destinations coming soon 🌍
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10 auto-rows-fr">
+              {international.map((item, index) => (
+                <div
+                  key={index}
+                  className={`bg-white rounded-3xl shadow-md
+              p-2 sm:p-3 lg:p-6
+              min-h-[126px] sm:min-h-[200px] lg:min-h-[332px]
+              text-center
+              ${index === international.length - 1 ? "hidden sm:block" : ""}`}
+                >
+                  <div className="rounded-3xl overflow-visible sm:overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="rounded-3xl object-cover w-full
+           h-[76px] sm:h-[120px] lg:h-[200px]"
+                    />
+                  </div>
+
+                  <p
+                    className="mt-2 sm:mt-5 lg:mt-8
+              font-semibold text-gray-900
+              text-[13px] sm:text-lg lg:text-[36px]"
+                  >
+                    {item.name}
+                  </p>
+                </div>
+              ))}
             </div>
           )}
         </div>
