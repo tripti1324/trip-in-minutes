@@ -100,8 +100,10 @@ Services Interested In: ${
 
           {/* FORM */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 sm:p-12">
-            <div className="card flex justify-content-center">
-              <p className="font-medium mb-2">Services Interested In</p>
+   <div className="flex flex-col gap-1">
+  <label className="font-medium text-sm">
+    Services Interested In
+  </label>
 
   <MultiSelect
     value={formData.services}
@@ -109,13 +111,14 @@ Services Interested In: ${
     onChange={(e) =>
       setFormData((prev) => ({ ...prev, services: e.value }))
     }
-    placeholder="Select Services"
-    display="chip"                 // ✅ ADD THIS
-  maxSelectedLabels={5}
-  className="w-full bg-white"
-  panelClassName="max-h-40 bg-white"
+    placeholder="Select Services "
+    display="chip"
+    maxSelectedLabels={5}
+    className="w-full px-4 py-3 bg-gray-100 rounded-lg"
+    panelClassName="max-h-40 bg-white"
   />
-            </div>
+</div>
+
 
             <input
               name="name"
