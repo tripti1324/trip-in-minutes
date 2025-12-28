@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logo } from "../../../assets";
 import ThreeLine from "../../smallcomp/ThreeLinr";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -31,9 +32,13 @@ const Navbar = () => {
 
   return (
     <nav className=" top-0 z-50 flex items-center justify-between px-4 py-3 bg-white text-black rounded-t-3xl">
+    
+  <Link to="/" className="hover:underliZne" >
       <img src={logo} alt="logo" className="h-8" />
+      </Link>
 
       <div className="md:hidden">
+        
     <ThreeLine />
   </div>
 

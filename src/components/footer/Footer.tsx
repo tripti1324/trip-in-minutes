@@ -27,6 +27,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 items-start">
           {/* LOGO */}
           <div className="col-span-1 order-3 gap-4 md:gap-12 md:order-1 flex justify-center md:justify-start mt-10 md:mt-0">
+          <Link to="/" className="hover:underliZne"  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img
               src={logo}
               alt="Trip In Minutes"
@@ -35,6 +36,7 @@ const Footer = () => {
     lg:w-[376px] lg:h-[164px]
     object-contain"
             />
+            </Link>
           </div>
 
           {/* USEFUL LINKS */}
