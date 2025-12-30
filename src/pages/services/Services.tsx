@@ -1,5 +1,6 @@
 import { girlWithLuggage} from "../../assets";
 import { TripCuate } from "../../assets";
+import { useEffect, useState } from "react";
 
 import React from "react";
 
@@ -54,6 +55,21 @@ export const services = [
 
  
 const Services: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    const mobile = window.innerWidth <= 768;
+    setIsMobile(mobile);
+    console.log("isMobile:", mobile);
+  };
+
+  checkMobile(); // first run
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
   return (
     <section className="w-full bg-white py-16 "   >    
 
@@ -63,7 +79,7 @@ const Services: React.FC = () => {
         {/* HEADING */}
         {/* MOBILE HEADER (TripCuate + Girl) */}
 <div
-  className="relative lg:hidden bg-no-repeat bg-[length:75%] bg-right min-h-[260px] flex items-end pb-6 pl-4
+  className="relative lg:hidden bg-no-repeat  bg-[length:75%] bg-right min-h-[260px] flex items-end pb-6 pl-4
   "
   style={{ backgroundImage: `url(${TripCuate})` }}
 >
@@ -71,7 +87,7 @@ const Services: React.FC = () => {
   <img
     src={girlWithLuggage}
     alt="Traveller"
-    className="absolute right-0 bottom-0  h-[90%]  z-20 object-contain  "/>
+    className="absolute right-0 bottom-0 h-[90%] z-20 object-contain  "/>
 
   {/* TEXT */}
   <h2 className="relative z-30 text-3xl font-bold break-words leading-tight w-40">
@@ -83,7 +99,8 @@ const Services: React.FC = () => {
   </h2>
 
 
-        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start" style={{ backgroundImage: `url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
+        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start " style={{ backgroundImage: isMobile ? "none" :`url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right bottom 80px",backgroundRepeat: "no-repeat" }} >
+          
 
           {/* LEFT – SERVICES */}
           <div className="relative z-10 grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 w-full order-2 lg:order-1">
@@ -91,19 +108,21 @@ const Services: React.FC = () => {
               <div
                 key={index}
                 className={`bg-white
-  rounded-xl lg:rounded-2xl
-  shadow-lg
-  ${index === services.length - 1 ? "w-[319px] h-[80px]" : "w-[154px] h-[100px]"} sm:w-auto sm:h-auto p-2 sm:p-4 lg:pt-5 lg:px-5 lg:pb-3 overflow-hidden${
-    item.fullWidth ? "lg:col-span-2" : ""
-  }`}
+  rounded-[12px] lg:rounded-2xl
+  shadow-md
+  ${index === services.length - 1 ? "w-[319px] min-h-[78px]" : "w-[154px] min-h-[102px]"}
+  sm:w-auto sm:h-auto 
+  px-3 py-2 sm:p-4 lg:pt-5 lg:px-5 lg:pb-3
+  overflow-hidden 
+  ${item.fullWidth ? "lg:col-span-2" : ""}`}
               >
-                <div className="flex items-start gap-3 w-full">
-                  <span className="w-4 h-4 shrink-0 flex items-center justify-center">{item.icon}</span>
-                  <div>
-                    <h3 className="font-semibold text-[9px] sm:text-sm mb-1">
+                <div className="flex items-start gap-1 sm:gap-3 w-full h-full px-0 sm:px-0">
+                  <span className="w-4 h-4 shrink-0 flex items-start justify-center mt-[2px]">{item.icon}</span>
+                  <div className="w-full h-full">
+                    <h3 className="font-medium text-[10px] mt-2 leading-[14px] mb-[2px] sm:text-sm">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-[9px] leading-[1.35] sm:text-sm lg:text-base lg:leading-relaxed">
+                    <p className="text-gray-500 text-[10px] leading-[13px] ml-0 sm:text-sm lg:text-base lg:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -113,7 +132,7 @@ const Services: React.FC = () => {
           </div>
 
             {/* RIGHT – GIRL + BG */}
-            <div className="relative flex justify-end items-end order-1 lg:order-2 mb-10 lg:mb-0 min-h-[760px] h-full hidden lg:block">
+            <div className="relative flex justify-end items-end order-1 lg:order-2 mb-10 lg:mb-0 min-h-[820px] h-full hidden lg:block">
 
             {/* CLOUD BG (desktop + mobile) */}             
 
@@ -121,7 +140,7 @@ const Services: React.FC = () => {
             <img
               src={girlWithLuggage}
               alt="Traveller"
-              className="relative z-20 h-full object-bottom -translate-x-1/2"
+              className="relative z-20 max-h-full w-[110%]  object-contain  translate-y-[20px]  -translate-x-1/2"
             />
             </div>
 

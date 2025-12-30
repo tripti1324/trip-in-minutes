@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logo } from "../../../assets";
 import ThreeLine from "../../smallcomp/ThreeLinr";
 import { Link } from "react-router-dom";
+import PopUpForm from "../PopUpForm";
 
 
 const Navbar = () => {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -31,7 +33,10 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className=" top-0 z-50 flex items-center justify-between px-4 py-3 bg-white text-black rounded-t-3xl">
+    <nav className=" top-0 z-50 flex items-center justify-between
+  px-4 md:px-[72px]
+  py-3
+  bg-white text-black rounded-t-3xl">
     
   <Link to="/" className="hover:underliZne" >
       <img src={logo} alt="logo" className="h-8" />
@@ -79,12 +84,16 @@ const Navbar = () => {
         </li>
 
         <button
-          onClick={() => handleScroll("Inquiryform")}
+          onClick={() => setIsPopUpOpen(true)}
           className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
         >
           Book a Trip
         </button>
       </ul>
+      <PopUpForm
+  isOpen={isPopUpOpen}
+  onClose={() => setIsPopUpOpen(false)}
+/>
 
       
     </nav>

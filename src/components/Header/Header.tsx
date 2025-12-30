@@ -200,7 +200,7 @@ const Header = () => {
       <section id="corporate" className="w-full bg-white lg:py-8">
         <div className="max-w-7xl mx-auto px-6">
           {/* HEADING WRAPPER */}
-          <div className="relative overflow-hidden md:grid md:grid-cols-[1fr_auto] md:items-start md:gap-6">
+          <div className="relative  md:grid md:grid-cols-[1fr_auto] md:items-start md:gap-6">
             {/* MOBILE BG IMAGE (RIGHT SIDE ONLY) */}
             <div
               className="
@@ -238,7 +238,7 @@ const Header = () => {
               </h2>
             </div>
           </div>
-          <div className="relative md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-start">
+          <div className="relative mt-6 md:mt-2 md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-start">
             {/* PARAGRAPH */}
             <div>
               <p
@@ -248,7 +248,7 @@ const Header = () => {
   leading-[1.7]
   max-w-[560px]
   px-6 md:px-0
-  md:mt-1"
+  md:mt-1 mb-2"
               >
                 From business trips and team movements to events and incentive
                 tours — our Corporate Travel Solutions offer smooth
@@ -271,9 +271,9 @@ const Header = () => {
       </section>
 
       <section id="destinations" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" >
           {/* TABS */}
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex justify-center gap-4 mb-8 md:mb-12">
             <button
               onClick={() => setActiveTab("domestic")}
               className={`w-[134px] h-[38px]           /* MOBILE: 134×38 */

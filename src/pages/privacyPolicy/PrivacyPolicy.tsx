@@ -39,13 +39,13 @@ const PrivacyPolicy = () => {
   />
 
   {/* CONTENT (UNCHANGED) */}
-  <div className="relative z-10 flex items-center md:block min-h-full">
+  <div className="relative z-10 flex items-center md:flex md:items-center min-h-full">
     
     <TopTab/>
 
 
         
-        <div className="max-w-4xl text-white mx-auto px-2 md:px-10 py-16 text-center md:text-left">
+        <div className="max-w-4xl text-white px-2 md:px-24 py-16 text-center md:text-left mx-auto md:mx-0">
           <h1 className="font-bold leading-tight text-[28px] md:text-[69px] mx-auto md:mx-0">
             Privacy Policy <br /> Terms & Conditions
           </h1>
