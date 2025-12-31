@@ -21,12 +21,34 @@ const MobContactBar = () => {
         </div>
 
         {/* Follow Us */}
-        <div className="flex items-center gap-1 whitespace-nowrap">
-          <span>Follow Us:</span>
-          <img src= {Facebook} className="h-[12px] w-[12px]"/>
-         <img src= {Instagram} className="h-[12px] w-[12px]"/>
-         <img src= {linkdlin} className="h-[12px] w-[12px]"/>
-        </div>
+<div className="flex items-center gap-1 whitespace-nowrap">
+  <span>Follow Us:</span>
+
+  <a
+    href="https://www.facebook.com/tripinminutes"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={Facebook} className="h-[12px] w-[12px] cursor-pointer" />
+  </a>
+
+  <a
+    href="https://www.instagram.com/tripinminutes/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={Instagram} className="h-[12px] w-[12px] cursor-pointer" />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/company/tripinminutes/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={linkdlin} className="h-[12px] w-[12px] cursor-pointer" />
+  </a>
+</div>
+
 
       </div>
     </div>

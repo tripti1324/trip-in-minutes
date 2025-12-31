@@ -92,7 +92,7 @@ Services Interested In: ${
       <div className="relative bg-white w-[95%] max-w-2xl rounded-2xl shadow-xl max-h-[75vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-3xl text-gray-500"
+          className="absolute top-1.5 sm:top-4 right-4 text-3xl text-gray-500"
         >
           ×
         </button>
@@ -142,11 +142,11 @@ Services Interested In: ${
               required
               className="px-4 py-3 bg-gray-100 rounded-lg"
             />
-            <input
+            <textarea
               name="message"
               placeholder="Message"
               onChange={handleInputChange}
-              required
+                rows={5}
               className="px-4 py-3 bg-gray-100 rounded-lg"
             />
 
@@ -185,12 +185,7 @@ Services Interested In: ${
 
 
 /* ✔ Make label readable & never clipped */
-.p-multiselect-item label {
-  font-size: 14px;
-  line-height: 1.4 !important;   /* 👈 prevents text hiding */
-  white-space: nowrap;           /* keeps text in one line */
-  overflow: visible !important;
-}
+
 
 /* ✅ Show Select All checkbox */
 .p-multiselect-header .p-checkbox {
@@ -199,30 +194,55 @@ Services Interested In: ${
   align-items: center !important;
 }
 
+/* FIX checkbox + label distance */
+.p-multiselect-item {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 12px !important;
+}
 
+.p-multiselect-item > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;        /* ✅ SMALL clean gap */
+  width: auto !important;     /* ✅ DO NOT stretch */
+}
 
-  .p-multiselect-item {
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 0.75rem !important;
-    box-sizing: border-box;
-  }
+/* prevent PrimeReact spacing push */
+.p-multiselect-item label {
+  margin: 0 !important;
+  white-space: nowrap;
+  margin-left: 10px !important;
+}
+
 
   /* Prevent highlight state from changing layout */
-  .p-multiselect-item.p-highlight {
-    height: 40px !important;
-    padding: 0 0.75rem !important;
-  }
+ /* Lock item height permanently */
+.p-multiselect-item,
+.p-multiselect-item.p-highlight {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+}
 
-  /* Fix checkbox + text alignment */
-  .p-multiselect-item > div {
-    display: flex !important;
-    align-items: center !important;
-    gap: 14px !important;
-    width: 5%;
-  }
-    
+
+/* Selected chips stay in one line */
+.p-multiselect-label-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;   /* ✅ one line */
+  overflow-x: auto !important;    /* scroll if needed */
+}
+
+/* Individual chip */
+.p-multiselect-token {
+  margin-right: 6px !important;   /* small spacing */
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  white-space: nowrap;
+}
 
 
   /* Fix label jump */
@@ -272,6 +292,10 @@ Services Interested In: ${
 }
   .p-multiselect:hover {
   border-color: #9ca3af !important; /* gray-400 */
+}
+/* ✅ FORCE SPACE BETWEEN CHECKBOX AND TEXT (ALL DEVICES) */
+.p-multiselect-item .p-checkbox {
+  margin-right: 4px !important;
 }
 
 

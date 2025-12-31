@@ -96,9 +96,9 @@ const Footer = () => {
           <div className="col-span-1 order-4 gap-4 md:gap-12 text-[12px] lg:text-[16px] text-center md:text-left ">
             <h4 className="font-bold mb-4">Contact Us</h4>
             <p className=" text-black mb-2">
-              Siv Estate, Sy No 49/283,
+              Trip In Minutes Pvt Ltd, #1009 B Wing,
               <br />
-              Rajanakunte, Bangalore North, Karnataka, India, 560064
+              10th Floor, MG Road, Mittal Tower, Bangalore-560001
             </p>
 
             <p className="text-black flex items-center justify-center md:justify-start gap-2">
