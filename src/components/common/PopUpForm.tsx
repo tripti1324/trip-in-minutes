@@ -104,6 +104,7 @@ Services Interested In: ${
   
 
   <MultiSelect
+  selectedItemsLabel="{0} services selected"
     value={formData.services}
     options={serviceOptions}
     onChange={(e) =>
@@ -112,6 +113,8 @@ Services Interested In: ${
     placeholder="Select Services "
     display="chip"
     maxSelectedLabels={5}
+     showSelectAll
+  selectAllLabel="Select All Services"
     className="w-full px-4 py-3 bg-gray-100 rounded-lg"
     panelClassName="max-h-40 bg-white"
   />
@@ -139,6 +142,13 @@ Services Interested In: ${
               required
               className="px-4 py-3 bg-gray-100 rounded-lg"
             />
+            <input
+              name="message"
+              placeholder="Message"
+              onChange={handleInputChange}
+              required
+              className="px-4 py-3 bg-gray-100 rounded-lg"
+            />
 
             <button
               type="submit"
@@ -152,6 +162,45 @@ Services Interested In: ${
 <style>
 {`
   /* Lock row height completely */
+
+  /* ===== FIX SELECT ALL ROW ALIGNMENT ===== */
+
+/* Select All container */
+/* ✅ SELECT ALL — always one line (desktop + mobile) */
+.p-multiselect-header {
+  display: flex !important;
+  flex-direction: row !important;   /* 🔥 force horizontal */
+  align-items: center !important;
+  gap: 12px !important;              /* checkbox __gap__ text */
+  min-height: 44px !important;
+  padding: 8px 12px !important;
+  white-space: nowrap !important;
+}
+
+.p-multiselect-header label {
+  font-size: 14px;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+}
+
+
+/* ✔ Make label readable & never clipped */
+.p-multiselect-item label {
+  font-size: 14px;
+  line-height: 1.4 !important;   /* 👈 prevents text hiding */
+  white-space: nowrap;           /* keeps text in one line */
+  overflow: visible !important;
+}
+
+/* ✅ Show Select All checkbox */
+.p-multiselect-header .p-checkbox {
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+
+
   .p-multiselect-item {
     height: 40px !important;
     display: flex !important;
@@ -170,13 +219,16 @@ Services Interested In: ${
   .p-multiselect-item > div {
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem;
+    gap: 14px !important;
+    width: 5%;
   }
+    
+
 
   /* Fix label jump */
   .p-multiselect-item label {
-    margin: 0 !important;
-    line-height: 1 !important;
+  font-size: 14px;
+  cursor: pointer;
     display: flex !important;
     align-items: center !important;
   }

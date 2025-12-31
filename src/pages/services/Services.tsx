@@ -99,7 +99,7 @@ useEffect(() => {
   </h2>
 
 
-        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start " style={{ backgroundImage: isMobile ? "none" :`url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right bottom 80px",backgroundRepeat: "no-repeat" }} >
+        <div className="grid lg:grid-cols-[1.25fr_.75fr] gap-3 items-start " style={{ backgroundImage: isMobile ? "none" :`url(${TripCuate})`, backgroundSize: "75%", backgroundPosition: "right",backgroundRepeat: "no-repeat" }} >
           
 
           {/* LEFT – SERVICES */}
@@ -119,10 +119,10 @@ useEffect(() => {
                 <div className="flex items-start gap-1 sm:gap-3 w-full h-full px-0 sm:px-0">
                   <span className="w-4 h-4 shrink-0 flex items-start justify-center mt-[2px]">{item.icon}</span>
                   <div className="w-full h-full">
-                    <h3 className="font-medium text-[10px] mt-2 leading-[14px] mb-[2px] sm:text-sm">
+                    <h3 className="font-medium text-[10px] leading-[14px] mb-[2px] sm:text-sm">
                       {item.title}
                     </h3>
-                    <p className="text-gray-500 text-[10px] leading-[13px] ml-0 sm:text-sm lg:text-base lg:leading-relaxed">
+                    <p className="text-gray-500 text-[10px] leading-[13px] sm:text-sm lg:text-base lg:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ useEffect(() => {
           </div>
 
             {/* RIGHT – GIRL + BG */}
-            <div className="relative flex justify-end items-end order-1 lg:order-2 mb-10 lg:mb-0 min-h-[820px] h-full hidden lg:block">
+            <div className="relative flex justify-end items-end order-1 lg:order-2 mb-10 lg:mb-0 min-h-[760px] h-full hidden lg:block">
 
             {/* CLOUD BG (desktop + mobile) */}             
 
@@ -140,7 +140,7 @@ useEffect(() => {
             <img
               src={girlWithLuggage}
               alt="Traveller"
-              className="relative z-20 max-h-full w-[110%]  object-contain  translate-y-[20px]  -translate-x-1/2"
+              className="relative z-20 max-h-full w-full  object-contain  translate-y-[-0px]  -translate-x-1/2"
             />
             </div>
 
