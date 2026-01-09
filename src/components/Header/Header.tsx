@@ -1,7 +1,5 @@
-import {afterheaderDesktopview,earthIcon,flashIcon,HomepagemobileversionImage,timAboutUsImg,Mice,Bali,Bangkok1,Dubai,England,France,Italy,Malaysia,Maldives,Mauritius1,Qatar,SaudiArabia,Singapore,Vietnam} from "../../assets";
+import {afterheaderDesktopview,earthIcon,flashIcon,HomepagemobileversionImage} from "../../assets";
 import { useState } from "react";
-import {Andaman,Kerala,Uttarakhand,JammuKashmir,Karnataka,Lakshadweep,Goa,rajsthan,HimachalPradesh,} from "../../assets";
-
 import MobContactBar from "../common/MobContactBar";
 import Testimonial from "../../pages/testimonials/Testimonials";
 import Footer from "../footer/Footer";
@@ -11,38 +9,11 @@ import Navbar from "../common/navbar/NavBar";
 import Services from "../../pages/services/Services";
 import TopTab from "../smallcomp/TopTab";
 import FormHomePage from "../smallcomp/FormHomePage";
-const domestic = [
-  { name: "Goa", img: Goa },
-  { name: "Andaman", img: Andaman },
-  { name: "Kerala", img: Kerala },
-  { name: "Himachal Pradesh", img: HimachalPradesh },
-  { name: "Uttarakhand", img: Uttarakhand },
-  { name: "Rajasthan", img: rajsthan },
-  { name: "Jammu & Kashmir", img: JammuKashmir },
-  { name: "Karnataka", img: Karnataka },
-  { name: "Lakshadweep", img: Lakshadweep },
-];
-
-const international = [
- { name: "Bali", img: Bali },
-  { name: "Bangkok", img: Bangkok1 },
-  { name: "Dubai", img: Dubai },
-  { name: "England ", img: England },
-  { name: "France", img: France },
-  { name: "Italy", img: Italy },
-  { name: "Malasiya", img: Malaysia },
-  { name: "Maldives", img: Maldives },
-  { name: "Mauritius", img: Mauritius1},
-  { name: "Qatar ", img: Qatar },
-  { name: "SaudiArabia ", img: SaudiArabia },
-  { name: "Singapore ", img: Singapore },
-  { name: "Vietnam", img: Vietnam },
-];
+import HomeAboutPage from "../common/HomeAboutPage";
+import CorporateHomePage from "../common/CorporateHomePage";
+import ExploreDestination from "../common/ExploreDestination";
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState<"domestic" | "international">(
-    "domestic"
-  );
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
 
   const handleInputChange = (
@@ -51,8 +22,6 @@ const Header = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  
 
   return (
     <>
@@ -69,7 +38,6 @@ const Header = () => {
             backgroundPosition: "center",
           }}
         />
-
         {/* DESKTOP BACKGROUND */}
         <div
           className="absolute left-0 right-0 h-[588px] hidden md:block"
@@ -79,26 +47,16 @@ const Header = () => {
             backgroundPosition: "center",
           }}
         />
-
         {/* CONTENT (UNCHANGED) */}
         <div className="relative z-10">
-          
           <TopTab />
-
           {/* HERO CONTENT   flex flex-col lg:flex-row justify-between px-6 lg:px-12 py-10 gap-2 */}
-          <div className="flex flex-col lg:flex-row 
-  justify-center lg:justify-between
-  lg:items-center 
-  px-6 lg:px-12 py-10
-  gap-2
-  md:min-h-[588px]">
+          <div
+            className="flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center px-6 lg:px-12 py-10 gap-2 md:min-h-[588px]"   >
             {/* LEFT */}
             <div className="max-w-xl mx-auto text-center lg:text-left lg:mx-0">
               <h1
-                className="font-bold text-white leading-tight
-    text-[23px] sm:text-[53px]
-    text-center lg:text-left"
-              >
+                className="font-bold text-white leading-tight text-[23px] sm:text-[53px] text-center lg:text-left">
                 <span className="block whitespace-nowrap">
                   Travel Simplified.
                 </span>
@@ -108,16 +66,12 @@ const Header = () => {
               </h1>
 
               <p
-                className="mt-4 text-white opacity-90
-    text-[9px] sm:text-[21px]
-    text-center lg:text-left
-    max-w-[90%] mx-auto lg:mx-0"
+                className="mt-4 text-white opacity-90 text-[9px] sm:text-[21px] text-center lg:text-left max-w-[90%] mx-auto lg:mx-0"
               >
                 For travelers, explorers, creators, families, friends, and
                 corporate — we curate travel that flows as effortlessly as your
                 dreams.
               </p>
-
               <div className=" hidden md:flex gap-3 mt-6">
                 <div className="flex items-center gap-3 bg-white text-black px-5 py-2.5 rounded-2xl text-xs shadow-sm">
                   <img src={flashIcon} className="h-5 w-5 shrink-0" />
@@ -128,7 +82,6 @@ const Header = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-center gap-3 bg-white text-black px-5 py-2.5 rounded-2xl text-xs shadow-sm">
                   <img src={earthIcon} className="h-5 w-5 shrink-0" />
                   <div>
@@ -138,244 +91,14 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
-            {/* FORM */}
             <FormHomePage />
           </div>
         </div>
       </header>
-
-      {/* ================= ABOUT SECTION ================= */}
-      <section id="about" className="w-full bg-white pt-20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2  gap-12 items-center">
-          {/* LEFT CONTENT */}
-          <div>
-            <h2 className="text-lg sm:text-xl md:text-3xl font-bold mb-3 md:mb-6 text-center md:text-left">
-              ABOUT US
-            </h2>
-
-            <p className="text-black mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-lg leading-relaxed text-center md:text-left max-w-lg mx-auto md:max-w-none">
-              Trip in Minutes is a modern travel service built to make planning
-              effortless and joyful. We combine smart coordination, curated
-              experiences and warm, personalised support to design journeys that
-              match your style whether you're exploring solo, creating travel
-              content, enjoying time with family and friends, or travelling for
-              business.
-            </p>
-
-            <p className="text-black mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-lg leading-relaxed text-center md:text-left max-w-lg mx-auto md:max-w-none hidden lg:block">
-              Our approach is simple: quick coordination, seamless planning,
-              warm guidance, and beautifully curated travel experiences.
-            </p>
-
-            <p className="text-black mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-lg leading-relaxed text-center md:text-left max-w-lg mx-auto md:max-w-none hidden lg:block">
-              From flights and stays to full-scale travel design, we bring
-              together technology, insight, and passion to make your journeys
-              smoother, smarter, and more meaningful.
-            </p>
-
-            <p className="text-black mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-lg leading-relaxed text-center md:text-left max-w-md mx-auto md:max-w-none lg:hidden">
-              Our focus is on clarity, quality and thoughtful execution. We
-              provide fast, reliable support where it matters, and careful
-              curation where it counts — all to ensure your travel moments are
-              meaningful and stress-free.
-            </p>
-          </div>
-
-          {/* RIGHT IMAGE + BADGES */}
-          <div className="relative flex justify-center">
-            <img
-              src={timAboutUsImg}
-              alt="About Trip In Minutes"
-              className="w-72 sm:w-96 md:w-[420px]"
-            />
-          </div>
-        </div>
-      </section>
-      {/* ================= Our Services SECTION ================= */}
-
+      <HomeAboutPage />
       <Services />
-      {/* NEXT SECTIONS GO HERE (Services, Testimonial, etc.) */}
-
-      <section id="corporate" className="w-full bg-white lg:py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* HEADING WRAPPER */}
-          <div className="relative  md:grid md:grid-cols-[1fr_auto] md:items-start md:gap-6">
-            {/* MOBILE BG IMAGE (RIGHT SIDE ONLY) */}
-            <div
-              className="
-          absolute 
-    -right-10 top-0
-    h-[125%]
-    w-[72%]
-    bg-no-repeat bg-cover
-    bg-right
-    md:hidden
-    z-0
-        "
-              style={{ backgroundImage: `url(${Mice})` }}
-            />
-
-            {/* HEADING */}
-            <div className="md:max-w-[695px]">
-              <h2
-                className="relative z-10
-  text-[24px]        // ← MOBILE 24px
-  md:text-[40px]     // ← LAPTOP 40px
-  font-bold
-  leading-[1.1]
-  px-6 md:px-0
-  mb-2"
-              >
-                <span className="md:hidden">Corporate,</span>
-                <span className="hidden md:inline mb-0">
-                  Corporate, Travel, Simplified
-                </span>
-                <br className="md:hidden" />
-                <span className="md:hidden">Travel,</span>
-                <br className="md:hidden" />
-                <span className="md:hidden">Simplified</span>
-              </h2>
-            </div>
-          </div>
-          <div className="relative mt-6 md:mt-2 md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-start">
-            {/* PARAGRAPH */}
-            <div>
-              <p
-                className="relative z-10 text-black
-  text-[12px]        // ← MOBILE 12px
-  md:text-[30px]     // ← LAPTOP 30px
-  leading-[1.7]
-  max-w-[560px]
-  px-6 md:px-0
-  md:mt-1 mb-2"
-              >
-                From business trips and team movements to events and incentive
-                tours — our Corporate Travel Solutions offer smooth
-                coordination, smart planning, and reliable support for every
-                level of corporate travel. We streamline the entire experience
-                so your teams can move confidently, efficiently, and without
-                disruptions.
-              </p>
-            </div>
-            {/* DESKTOP IMAGE – PARALLEL TO PARAGRAPH */}
-            <div className="hidden md:flex justify-end md:-mt-6">
-              <img
-                src={Mice}
-                alt="Corporate Travel Illustration"
-                className="w-[841px] h-[432px]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="destinations" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6" >
-          {/* TABS */}
-          <div className="flex justify-center gap-4 mb-8 md:mb-12">
-            <button
-              onClick={() => setActiveTab("domestic")}
-              className={`w-[134px] h-[38px]           /* MOBILE: 134×38 */
-  md:w-[353px] md:h-[100px]   /* LAPTOP: 353×100 */
-  px-0 py-0                   /* let width/height control size */
-  rounded-lg
-  font-semibold
- text-[15px] md:text-[38px]         /* text scales with screen */
-  flex items-center justify-center ${
-    activeTab === "domestic"
-      ? "bg-indigo-900 text-white"
-      : "bg-gray-100 text-indigo-900"
-  }`}
-            >
-              DOMESTIC
-            </button>
-
-            <button
-              onClick={() => setActiveTab("international")}
-              className={`w-[134px] h-[38px]           /* MOBILE: 134×38 */
-  md:w-[353px] md:h-[100px]   /* LAPTOP: 353×100 */
-  px-0 py-0                   /* let width/height control size */
-  rounded-lg
-  font-semibold
-  text-[15px] md:text-[38px]          /* text scales with screen */
-  flex items-center justify-center ${
-    activeTab === "international"
-      ? "bg-indigo-900 text-white"
-      : "bg-gray-100 text-indigo-900"
-  }`}
-            >
-              INTERNATIONAL
-            </button>
-          </div>
-
-          {/* CARDS */}
-          {activeTab === "domestic" && (
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10 auto-rows-fr">
-              {domestic.map((item, index) => (
-                <div
-                  key={index}
-                  className={`bg-white rounded-3xl shadow-md
-              p-2 sm:p-3 lg:p-6
-              min-h-[126px] sm:min-h-[200px] lg:min-h-[332px]
-              text-center
-              ${index === domestic.length - 1 ? "hidden sm:block" : ""}`}
-                >
-                  <div className="rounded-3xl overflow-visible sm:overflow-hidden">
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      className="rounded-3xl object-cover w-full
-           h-[76px] sm:h-[120px] lg:h-[200px]"
-                    />
-                  </div>
-
-                  <p
-                    className="mt-2 sm:mt-5 lg:mt-8
-              font-semibold text-gray-900
-              text-[13px] sm:text-lg lg:text-[36px]"
-                  >
-                    {item.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* INTERNATIONAL PLACEHOLDER */}
-          {activeTab === "international" && (
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-10 auto-rows-fr">
-              {international.map((item, index) => (
-                <div
-                  key={index}
-                  className={`bg-white rounded-3xl shadow-md
-              p-2 sm:p-3 lg:p-6
-              min-h-[126px] sm:min-h-[200px] lg:min-h-[332px]
-              text-center
-              ${index === international.length - 1 ? "hidden sm:block" : ""}`}
-                >
-                  <div className="rounded-3xl overflow-visible sm:overflow-hidden">
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      className="rounded-3xl object-cover w-full
-           h-[76px] sm:h-[120px] lg:h-[200px]"
-                    />
-                  </div>
-
-                  <p
-                    className="mt-2 sm:mt-5 lg:mt-8
-              font-semibold text-gray-900
-              text-[13px] sm:text-lg lg:text-[36px]"
-                  >
-                    {item.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+      <CorporateHomePage />
+      <ExploreDestination />
       <Testimonial />
       <Inquiryform />
       <FAQSection />

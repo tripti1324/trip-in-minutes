@@ -32,7 +32,15 @@ const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
     email: "",
     mobile: "",
     services: defaultService ? [defaultService] : [],
+  
   });
+
+  const [status, setStatus] = useState({
+  submitted: false,
+  submitting: false,
+  info: { error: false, msg: "" },
+});
+
 
   useEffect(() => {
   if (!isOpen) {
@@ -60,23 +68,63 @@ const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
     formData.email.trim() &&
     formData.mobile.trim();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const text = `Name: ${formData.name}
-Email: ${formData.email}
-Mobile: ${formData.mobile}
-Services Interested In: ${
-      formData.services.length ? formData.services.join(", ") : "Not Selected"
-    }`;
+  setStatus((prev) => ({ ...prev, submitting: true }));
 
-    const whatsappUrl = `https://wa.me/917411605384?text=${encodeURIComponent(
-      text
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
-    onClose();
+  const payload = {
+    name: formData.name,
+    email: formData.email,
+    mobile: formData.mobile,
+    services: formData.services.length
+      ? formData.services.join(", ")
+      : "Not Selected",
+    message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement)?.value,
   };
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/hello@tripinminutes.in",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: "Message sent successfully!" },
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        mobile: "",
+        services: [],
+      });
+
+      setTimeout(onClose, 1500);
+    } else {
+      throw new Error(data.message || "Submission failed");
+    }
+  } catch (error) {
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: true, msg: "Something went wrong. Try again." },
+    });
+  }
+};
+
 
   if (!isOpen) return null;
 
@@ -152,10 +200,10 @@ Services Interested In: ${
 
             <button
               type="submit"
-              disabled={!isFormValid}
+              disabled={!isFormValid || status.submitting}
               className="bg-indigo-900 text-white py-2 rounded-lg disabled:bg-gray-400"
             >
-              Send Inquiry
+              {status.submitting ? "Sending..." : "Send Inquiry"}
             </button>
           </form>
        

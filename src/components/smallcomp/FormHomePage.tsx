@@ -2,10 +2,11 @@ import { useState , useEffect} from "react";
 
 
 const FormHomePage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
+   const [formData, setFormData] = useState({ name: '', email: '', mobile: '' });
+    const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: "" }
   });
 
   const handleInputChange = (
@@ -20,20 +21,53 @@ const FormHomePage = () => {
     formData.email.trim() &&
     formData.mobile.trim();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name") as string;
-    const email = form.get("email") as string;
-    const mobile = form.get("mobile") as string;
-    const message = form.get("message") as string;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const text = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`;
-    const whatsappUrl = `https://wa.me/917411605384?text=${encodeURIComponent(
-      text
-    )}`;
-    window.open(whatsappUrl, "_blank");
+  setStatus((prev) => ({ ...prev, submitting: true }));
+
+  const payload = {
+    name: formData.name,
+    email: formData.email,
+    mobile: formData.mobile,
+    message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement)?.value,
   };
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/hello@tripinminutes.in",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: "Message sent successfully!" },
+      });
+
+      setFormData({ name: "", email: "", mobile: "" });
+      (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value = "";
+    } else {
+      throw new Error(data.message || "Form submission failed");
+    }
+  } catch (error) {
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: true, msg: "Something went wrong. Try again." },
+    });
+  }
+};
 
   return (
     <div
@@ -94,10 +128,10 @@ text-white text-[8px] sm:text-[15px]  placeholder-white/70 focus:outline-none"
         <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-nowrap">
           <button
             type="submit"
-            disabled={!isFormValid}
+            disabled={!isFormValid || status.submitting}
             className="bg-indigo-900 hover:bg-indigo-700 px-3 py-2 sm:px-6 sm:py-3 rounded-lg text-[10px] xs:text-[11px] sm:text-sm whitespace-nowrap text-white flex items-center justify-center"
           >
-            Send Inquiry
+            {status.submitting ? "Sending..." : "Send Inquiry"}
           </button>
 
           <button
