@@ -2,7 +2,7 @@ import { useState , useEffect} from "react";
 
 
 const FormHomePage = () => {
-   const [formData, setFormData] = useState({ name: '', email: '', mobile: '' });
+   const [formData, setFormData] = useState({ name: '', email: '', mobile: '', message: '', });
     const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
@@ -30,7 +30,7 @@ const FormHomePage = () => {
     name: formData.name,
     email: formData.email,
     mobile: formData.mobile,
-    message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement)?.value,
+    message: formData.message,
   };
 
   try {
@@ -55,8 +55,8 @@ const FormHomePage = () => {
         info: { error: false, msg: "Message sent successfully!" },
       });
 
-      setFormData({ name: "", email: "", mobile: "" });
-      (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value = "";
+      setFormData({ name: "", email: "", mobile: "", message: "" });
+
     } else {
       throw new Error(data.message || "Form submission failed");
     }
@@ -116,6 +116,7 @@ text-white text-[8px] sm:text-[15px] placeholder-white/70 focus:outline-none"
 
         <textarea
           name="message"
+          value={formData.message}
           rows={5}
           onChange={handleInputChange}
           className="h-[106px] sm:h-[184px] w-full sm:w-[448px]

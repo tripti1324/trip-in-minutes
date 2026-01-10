@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { girlWithHat } from "../../assets"
-import { sendEmail } from "../../hooks/ContactForm";
+
 
 
 const Inquiryform = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', mobile: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', mobile: '' ,message: '',});
     const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
@@ -27,7 +27,7 @@ const Inquiryform = () => {
     name: formData.name,
     email: formData.email,
     mobile: formData.mobile,
-    message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement)?.value,
+    message: formData.message,
   };
 
   try {
@@ -52,8 +52,8 @@ const Inquiryform = () => {
         info: { error: false, msg: "Message sent successfully!" },
       });
 
-      setFormData({ name: "", email: "", mobile: "" });
-      (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value = "";
+      setFormData({ name: "", email: "", mobile: "", message: "" });
+
     } else {
       throw new Error(data.message || "Form submission failed");
     }
@@ -87,10 +87,37 @@ const Inquiryform = () => {
         <div className="bg-white rounded-2xl px-6 pt-6 pb-4 shadow-md border border-gray-200 order-2 lg:order-1">
           <form onSubmit={handleSubmit}  className="flex flex-col gap-4">
 
-            <input type="text" name="name" placeholder="Name *" onChange={handleInputChange} className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500" required />
-            <input type="email" name="email" placeholder="Email *" onChange={handleInputChange} className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500" required />
-            <input type="text" name="mobile" placeholder="Mobile *" onChange={handleInputChange} className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500" required />
-            <textarea name="message" placeholder="Message" className="px-4 py-3 h-56 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500 resize-none" />
+           <input
+  type="text"
+  name="name"
+  value={formData.name}
+  onChange={handleInputChange}
+  placeholder="Name *"
+  className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500"
+  required
+/>
+
+<input
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleInputChange}
+  placeholder="Email *"
+  className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500"
+  required
+/>
+
+<input
+  type="text"
+  name="mobile"
+  value={formData.mobile}
+  onChange={handleInputChange}
+  placeholder="Mobile *"
+  className="px-4 py-3 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500"
+  required
+/>
+
+            <textarea name="message" placeholder="Message" value={formData.message} onChange={handleInputChange} className="px-4 py-3 h-56 rounded-lg outline-none bg-gray-100 text-gray-800 placeholder-gray-500 resize-none" />
 
             <div className="flex gap-3 mt-4">
              <button type="submit" disabled={!isFormValid || status.submitting} className="bg-indigo-900 text-white px-6 py-2 rounded-lg text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">

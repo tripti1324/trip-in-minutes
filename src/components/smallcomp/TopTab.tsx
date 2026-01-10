@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useEffect, useState } from "react";
+import PopUpForm from "../common/PopUpForm";
 
 
 
@@ -9,7 +10,7 @@ const tabs = ["Flights", "Hotels", "Packages", "Visa", "Transportation"];
 
 const TopTab: React.FC = () => {
     const [show, setShow] = useState(true);
-
+const [clickedTab, setClickedTab] = useState("")
   useEffect(() => {
     const onScroll = () => {
       setShow(window.scrollY < 120); // hides after scrolling
@@ -19,6 +20,12 @@ const TopTab: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
+    <>
+         <PopUpForm
+  isOpen={clickedTab!==""}
+  onClose={() => setClickedTab("")}
+  defaultService={clickedTab}
+/>
     <div
        className={`
         fixed left-1/2 md:mx-10 -translate-x-1/2 top-[85px] md:top-[72px]
@@ -51,6 +58,7 @@ const TopTab: React.FC = () => {
     transition-colors duration-200
     hover:text-indigo-600
               "
+              onClick={()=>setClickedTab(tab)}
             >
               {tab}
             </span>
@@ -72,6 +80,7 @@ const TopTab: React.FC = () => {
         
       </div>
     </div>
+    </>
   );
 };
 

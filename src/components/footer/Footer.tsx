@@ -117,8 +117,8 @@ const Footer = () => {
 
             <p className="text-black flex items-center justify-center md:justify-start gap-2 mt-2">
               <span className="hidden lg:block lg:text-[16px]">✉️</span>
-              <a href="mailto:help@eduacho.in" className="hover:underline">
-                help@eduacho.in
+              <a href="mailto:hello@tripinminutes.in" className="hover:underline">
+                hello@tripinminutes.in
               </a>
             </p>
          </div>

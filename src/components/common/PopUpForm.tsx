@@ -2,9 +2,6 @@ import { useState } from "react";
 import { MultiSelect } from "primereact/multiselect";
 import { useEffect } from "react";
 
-
-
-
 const servicesList = [
   "Hotels",
   "Flights",
@@ -19,40 +16,60 @@ const serviceOptions = servicesList.map((service) => ({
   value: service,
 }));
 
-
 interface PopUpFormProps {
   isOpen: boolean;
   onClose: () => void;
   defaultService?: string;
 }
-
-const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  mobile: string;
+  services: string[];
+  message: string;
+}
+const PopUpForm = ({
+  isOpen,
+  onClose,
+  defaultService = "Not Selected",
+}: PopUpFormProps) => {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     mobile: "",
-    services: defaultService ? [defaultService] : [],
-  
+    services: [],
+    message: "",
   });
 
   const [status, setStatus] = useState({
-  submitted: false,
-  submitting: false,
-  info: { error: false, msg: "" },
-});
-
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: "" },
+  });
 
   useEffect(() => {
-  if (!isOpen) {
-    setFormData({
-      name: "",
-      email: "",
-      mobile: "",
-      services: [],
-    });
-  }
-}, [isOpen]);
+    if (defaultService) {
+      formData.services.push(defaultService);
+    }
+    if (!isOpen) {
+      setFormData({
+        name: "",
+        email: "",
+        mobile: "",
+        services: [],
+        message:"",
+      });
+    }
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, defaultService]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -61,70 +78,67 @@ const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- 
-
   const isFormValid =
-    formData.name.trim() &&
-    formData.email.trim() &&
-    formData.mobile.trim();
+    formData.name.trim() && formData.email.trim() && formData.mobile.trim();
 
- const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  setStatus((prev) => ({ ...prev, submitting: true }));
+    setStatus((prev) => ({ ...prev, submitting: true }));
 
-  const payload = {
-    name: formData.name,
-    email: formData.email,
-    mobile: formData.mobile,
-    services: formData.services.length
-      ? formData.services.join(", ")
-      : "Not Selected",
-    message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement)?.value,
-  };
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mobile,
+      services: formData.services.length
+        ? formData.services.join(", ")
+        : "Not Selected",
+      message: formData.message,
 
-  try {
-    const response = await fetch(
-      "https://formsubmit.co/ajax/hello@tripinminutes.in",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
+    };
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/hello@tripinminutes.in",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          submitted: true,
+          submitting: false,
+          info: { error: false, msg: "Message sent successfully!" },
+        });
+
+        setFormData({
+          name: "",
+          email: "",
+          mobile: "",
+          services: [],
+          message: "",
+        });
+
+        setTimeout(onClose, 1500);
+      } else {
+        throw new Error(data.message || "Submission failed");
       }
-    );
-
-    const data = await response.json();
-
-    if (response.ok) {
+    } catch (error) {
       setStatus({
-        submitted: true,
+        submitted: false,
         submitting: false,
-        info: { error: false, msg: "Message sent successfully!" },
+        info: { error: true, msg: "Something went wrong. Try again." },
       });
-
-      setFormData({
-        name: "",
-        email: "",
-        mobile: "",
-        services: [],
-      });
-
-      setTimeout(onClose, 1500);
-    } else {
-      throw new Error(data.message || "Submission failed");
     }
-  } catch (error) {
-    setStatus({
-      submitted: false,
-      submitting: false,
-      info: { error: true, msg: "Something went wrong. Try again." },
-    });
-  }
-};
-
+  };
 
   if (!isOpen) return null;
 
@@ -145,70 +159,72 @@ const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
           ×
         </button>
 
-
-          {/* FORM */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 sm:p-12">
-   <div className="flex flex-col gap-1">
-  
-
-  <MultiSelect
-  selectedItemsLabel="{0} services selected"
-    value={formData.services}
-    options={serviceOptions}
-    onChange={(e) =>
-      setFormData((prev) => ({ ...prev, services: e.value }))
-    }
-    placeholder="Select Services "
-    display="chip"
-    maxSelectedLabels={5}
-     showSelectAll
-  selectAllLabel="Select All Services"
-    className="w-full px-4 py-3 bg-gray-100 rounded-lg"
-    panelClassName="max-h-40 bg-white"
-  />
-</div>
-
-
-            <input
-              name="name"
-              placeholder="Name *"
-              onChange={handleInputChange}
-              required
-              className="px-4 py-3 bg-gray-100 rounded-lg"
+        {/* FORM */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 p-8 sm:p-12"
+        >
+          <div className="flex flex-col gap-1">
+            <MultiSelect
+              selectedItemsLabel="{0} services selected"
+              value={formData.services}
+              options={serviceOptions}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, services: e.value }))
+              }
+              placeholder="Select Services "
+              display="chip"
+              maxSelectedLabels={5}
+              showSelectAll
+              selectAllLabel="Select All Services"
+              className="w-full px-4 py-3 bg-gray-100 rounded-lg"
+              panelClassName="max-h-40 bg-white"
             />
-            <input
-              name="email"
-              placeholder="Email *"
-              onChange={handleInputChange}
-              required
-              className="px-4 py-3 bg-gray-100 rounded-lg"
-            />
-            <input
-              name="mobile"
-              placeholder="Mobile *"
-              onChange={handleInputChange}
-              required
-              className="px-4 py-3 bg-gray-100 rounded-lg"
-            />
-            <textarea
-              name="message"
-              placeholder="Message"
-              onChange={handleInputChange}
-                rows={5}
-              className="px-4 py-3 bg-gray-100 rounded-lg"
-            />
+          </div>
 
-            <button
-              type="submit"
-              disabled={!isFormValid || status.submitting}
-              className="bg-indigo-900 text-white py-2 rounded-lg disabled:bg-gray-400"
-            >
-              {status.submitting ? "Sending..." : "Send Inquiry"}
-            </button>
-          </form>
-       
-<style>
-{`
+          <input
+            name="name"
+            placeholder="Name *"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            className="px-4 py-3 bg-gray-100 rounded-lg"
+          />
+          <input
+            name="email"
+            placeholder="Email *"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            className="px-4 py-3 bg-gray-100 rounded-lg"
+          />
+          <input
+            name="mobile"
+            placeholder="Mobile *"
+            value={formData.mobile}
+            onChange={handleInputChange}
+            required
+            className="px-4 py-3 bg-gray-100 rounded-lg"
+          />
+          <textarea
+           name="message" 
+           value={formData.message}
+           onChange={handleInputChange}
+           rows={5}placeholder="Message"
+            className="px-4 py-3 bg-gray-100 rounded-lg"
+          />
+
+          <button
+            type="submit"
+            disabled={!isFormValid || status.submitting}
+            className="bg-indigo-900 text-white py-2 rounded-lg disabled:bg-gray-400"
+          >
+            {status.submitting ? "Sending..." : "Send Inquiry"}
+          </button>
+        </form>
+
+        <style>
+          {`
   /* Lock row height completely */
 
   /* ===== FIX SELECT ALL ROW ALIGNMENT ===== */
@@ -348,10 +364,7 @@ const PopUpForm = ({ isOpen, onClose, defaultService }: PopUpFormProps) => {
 
 
 `}
-</style>
-
-
-
+        </style>
       </div>
     </div>
   );
