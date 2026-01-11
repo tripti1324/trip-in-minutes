@@ -1,22 +1,21 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Home from "./pages/home/Home";
 import Contact from "./pages/contactUs/Contact";
-import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import About from "./pages/about/About";
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import WhatsAppFloating from "./components/smallcomp/WhatsAppFloating";
 import FloatingCallButton from "./components/smallcomp/FloatingCallButton";
 
 function App() {
   return (
     <div className="w-full overflow-x-hidden">
-      {/* Global components */}
-      <Header />
+      {/* GLOBAL FLOATING BUTTONS */}
       <FloatingCallButton />
       <WhatsAppFloating />
 
-      {/* Page routes */}
+      {/* ROUTES */}
       <Routes>
-        <Route path="/" element={null} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

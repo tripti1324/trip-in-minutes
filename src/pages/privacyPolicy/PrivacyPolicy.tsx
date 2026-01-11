@@ -150,7 +150,7 @@ const PrivacyPolicy = () => {
     href="mailto:hello@tripinminutes.com"
     className="text-indigo-700 underline"
   >
-    hello@tripinminutes.com
+    hello@tripinminutes.in
   </a>
 </p>
       </div>

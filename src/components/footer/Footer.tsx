@@ -59,7 +59,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact#Inquiryform" className="hover:underline">
+                <Link to="/contact" className="hover:underline" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                   ✓ Contact Us
                 </Link>
               </li>

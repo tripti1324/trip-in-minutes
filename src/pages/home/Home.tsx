@@ -1,7 +1,33 @@
+import Header from "../../components/Header/Header";
+import Footer from "../../components/footer/Footer";
+
+// import your home sections here
+// example:
+
+import Destinations from "../destinations/Destination";
+import Services from "../services/Services";
+import About from "../about/About";
+
 const Home = () => {
   return (
-    <div className="p-12">
-      <h1 className="text-3xl font-bold">Contact</h1>
+    <div className="w-full overflow-x-hidden">
+      {/* HEADER */}
+      <Header />
+
+      {/* HERO SECTION */}
+     
+
+      {/* ABOUT */}
+    
+
+      {/* SERVICES */}
+     
+
+      {/* DESTINATIONS */}
+      
+
+      {/* FOOTER */}
+     
     </div>
   );
 };

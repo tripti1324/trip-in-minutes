@@ -58,7 +58,7 @@ useEffect(() => {
 </Link>
 
             <Link
-              to="/contact#Inquiryform"
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
             >
