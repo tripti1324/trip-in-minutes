@@ -42,7 +42,7 @@ useEffect(() => {
             </Link>
 
             <Link
-              to="/about"
+              to="/about#aboutSection"
               onClick={() => setOpen(false)}
               className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
             >
@@ -58,7 +58,7 @@ useEffect(() => {
 </Link>
 
             <Link
-              to="/contact"
+              to="/contact#Inquiryform"
               onClick={() => setOpen(false)}
               className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
             >
@@ -66,7 +66,7 @@ useEffect(() => {
             </Link>
 
             <Link
-              to="/privacy-policy"
+              to="/privacy-policy#privacyPolicy"
               onClick={() => setOpen(false)}
               className="mx-4 bg-indigo-900 text-white py-3 rounded-lg text-center"
             >
