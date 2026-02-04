@@ -78,7 +78,7 @@ const Navbar = () => {
 
         <li
           className="cursor-pointer hover:text-indigo-600"
-          onClick={() => handleScroll("footer")}
+          onClick={() => handleScroll("/footer")}
         >
           Contact
         </li>
