@@ -71,7 +71,9 @@ useEffect(() => {
 }, []);
 
   return (
-    <section className="w-full bg-white py-16 "   >    
+    <section
+    id="services"
+     className="w-full bg-white py-16 "   >    
 
       <div className="max-w-7xl mx-auto px-5">
 

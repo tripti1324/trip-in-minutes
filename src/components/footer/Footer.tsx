@@ -95,16 +95,23 @@ const Footer = () => {
           {/* CONTACT US */}
           <div className="col-span-1 order-4 gap-4 md:gap-12 text-[12px] lg:text-[16px] text-center md:text-left ">
             <h4 className="font-bold mb-4">Contact Us</h4>
-            <p className=" text-black mb-2">
-              Trip In Minutes Pvt Ltd, #1009 B Wing,
-              <br />
-              10th Floor, MG Road, Mittal Tower, Bangalore-560001
-            </p>
+           {/* Bangalore Address */}
+  <p className="text-black mb-3">
+    <span className="font-semibold">Bangalore:</span> 1009 B Wing, 10th Floor,
+    Mittal Tower, MG Road Bangalore, Karnataka - 560001
+  </p>
+
+  {/* Mumbai Address */}
+  <p className="text-black mb-3">
+    <span className="font-semibold">Mumbai:</span> Office No. 230, 2nd floor,
+    Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover,
+    Virar West, Mumbai, Maharashtra- 401303
+  </p>
 
             <p className="text-black flex items-center justify-center md:justify-start gap-2">
               <span className="hidden lg:block lg:text-[16px]">📞</span>
-              <a href="tel:+917416053844" className="hover:underline">
-                +91 7416053844
+              <a href="tel:+917411605384" className="hover:underline">
+                +91 7411605384
               </a>
             </p>
 
